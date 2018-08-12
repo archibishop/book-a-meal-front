@@ -1,12 +1,5 @@
-// import axios from 'axios';
-import { LOGIN_USER, FETCH_USERS_REJECTED} from './types';
 
-// let handleErrors = (response) => {
-//     if (!response.ok) {
-//         throw Error(response.statusText)
-//     }
-//     return response
-// } 
+import { LOGIN_USER, FETCH_USERS_REJECTED} from './types'; 
 
 export const login = authData => dispatch => {
         let payload = {
