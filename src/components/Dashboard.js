@@ -128,13 +128,13 @@ class Dashboard extends Component{
 
                     <div >
                         <form action="./dashboard.html" onSubmit={this.handleAddMeal}>
-                            <label for="fname">Meal</label>
+                            <label htmlFor="fname">Meal</label>
                             <input type="text" id="fname" name="firstname" placeholder="Your name.."  />
 
-                            <label for="lname">Price</label>
+                            <label htmlFor="lname">Price</label>
                             <input type="number" id="lname" name="lastname" placeholder="Your last name.." />
 
-                            <label for="country">Type</label>
+                            <label htmlFor="country">Type</label>
                             <select id="country" name="country">
                                 <option value="breakfast">Breakfast</option>
                                 <option value="lunch">Lunch</option>
