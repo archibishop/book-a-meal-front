@@ -1,0 +1,3 @@
+
+export const LOGIN_USER = 'LOGIN_USER';
+export const FETCH_USERS_REJECTED = 'FETCH_USERS_REJECTED';
