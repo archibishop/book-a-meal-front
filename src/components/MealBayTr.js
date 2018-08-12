@@ -1,0 +1,22 @@
+import React, { Component } from 'react';
+
+class MealDayTr extends Component{
+    
+    handleRemove = (e) => {
+        e.preventDefault();
+        this.props.toggleBtn(this.props.menu.id);
+    }
+
+    render(){
+        return(
+            <tr>
+                <td>{ this.props.menu.id }</td>
+                <td>{this.props.menu.meal_name}</td>
+                <td>{this.props.menu.meal_type}</td>
+                <td><button className="button" onClick={this.handleRemove}>Remove</button></td>
+            </tr>
+        );
+    }
+    
+}
+export default MealDayTr;
