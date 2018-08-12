@@ -5,6 +5,9 @@ import mealReducer from './mealReducer';
 import makeOrderReducer from './makeOrderReducer';
 import deleteOrderReducer from './deleteOrderReducer';
 import updateOrderReducer from './updateOrderReducer';
+import addMealReducer from './addMealReducer';
+import updateMealReducer from './updateMealReducer';
+import deleteMealReducer from './deleteMealReducer';
 
 const mainReducer = combineReducers({
     user: userReducer,
@@ -12,7 +15,10 @@ const mainReducer = combineReducers({
     meals: mealReducer,
     order: makeOrderReducer,
     deleteOrder: deleteOrderReducer,
-    updateOrder: updateOrderReducer
+    updateOrder: updateOrderReducer,
+    addMeal: addMealReducer,
+    updateMeal: updateMealReducer,
+    deleteMeal: deleteMealReducer
 });
 
 export default mainReducer;

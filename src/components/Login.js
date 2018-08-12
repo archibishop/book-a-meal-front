@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import { login } from '../actions/auth'
@@ -7,18 +7,25 @@ import { Link } from 'react-router-dom'
 import Nav from './Navbar'
 
 
-class Login extends Component{
+class Login extends Component {
 
-    componentWillReceiveProps(authData){
-        if(authData){
-            if (authData.userData.role == 'user'){
+    componentWillReceiveProps(authData) {
+        console.log("out here no where")
+        console.log(authData)
+        if (authData) {
+            if (authData.userData.role == 'user') {
                 localStorage.setItem("x-access-token", authData.userData.token)
                 this.props.history.push("/order")
             }
+            else if (authData.userData.role == 'admin') {
+                localStorage.setItem("x-access-token", authData.userData.token)
+                this.props.history.push("/dashboard")
+            }
+            
         }
     }
 
-    componentWillMount(){
+    componentWillMount() {
         console.log(this.props)
     }
 
@@ -33,8 +40,8 @@ class Login extends Component{
     }
 
 
-    render(){
-        return(<div>
+    render() {
+        return (<div>
             <div className="Login">
                 <Nav />
 
@@ -55,7 +62,7 @@ class Login extends Component{
                         <input type="submit" readOnly="Submit" />
                     </form>
                 </div>
-            </div>             
+            </div>
         </div>);
     }
 }
@@ -66,6 +73,6 @@ Login.propTypes = {
 
 const mapStateToProps = state => ({
     userData: state.user.message
-}) 
+})
 
 export default connect(mapStateToProps, { login })(Login);
