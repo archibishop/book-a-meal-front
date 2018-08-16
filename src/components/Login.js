@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { login } from '../actions/auth'
 import '../css/Login.css'
 import { Link } from 'react-router-dom'
-import Nav from './Navbar'
+import Nav from './Navbar';
 
 
-class Login extends Component {
+export class Login extends Component {
 
     componentWillReceiveProps(authData) {
         console.log("out here no where")
@@ -59,7 +59,7 @@ class Login extends Component {
                         <input type="password" id="password" name="password" placeholder="Password.." />
 
 
-                        <input type="submit" readOnly="Submit" />
+                        <input id="login-submit" type="submit" readOnly="Submit" />
                     </form>
                 </div>
             </div>
