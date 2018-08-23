@@ -11,11 +11,13 @@ export const updateMenu =(id, menuData) => dispatch =>{
     }
     fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/menu/`+id, payload)
     .then(response=>response.json())
-        .then(data => dispatch(
-            {
-                type: UPDATE_MENU,
-                payload: data
-            }
-        ))
+        .then(data => console.log(data))
     .catch(error => console.log(error))
 }
+
+// dispatch(
+//     {
+//         type: UPDATE_MENU,
+//         payload: data
+//     }
+// )

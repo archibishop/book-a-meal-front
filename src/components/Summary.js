@@ -11,26 +11,7 @@ class Summary extends Component{
     constructor(props){
         super(props);
         this.state = {
-            orders: [
-                {
-                    "id": 1,
-                    "meal_name": "test",
-                    "meal_type": "breakfast",
-                    "price": 4000
-                },
-                {
-                    "id": 2,
-                    "meal_name": "try",
-                    "meal_type": "lunch",
-                    "price": 7000
-                },
-                {
-                    "id": 3,
-                    "meal_name": "climb",
-                    "meal_type": "lunch",
-                    "price": 6000
-                }
-            ],
+            orders: [],
             isOpen: false
         }
     }
@@ -39,6 +20,12 @@ class Summary extends Component{
         console.log("Summary Data");
         console.log(this.props);
         this.props.getOrders();
+    }
+
+    componentWillReceiveProps(data){
+        console.log("Component will recieve props")
+        console.log(data.orderData)
+        console.log(data.deleteOrderInfo)
     }
 
     toggleModal = (x) => {
@@ -61,6 +48,7 @@ class Summary extends Component{
         console.log(this.state);
         this.props.deleteOrder(this.state.id)
         console.log("Summary Delete");
+        this.toggleModal()
     }
 
     render(){
@@ -100,7 +88,8 @@ Summary.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    orderData: state.orders.orders
+    orderData: state.orders.orders,
+    deleteOrderInfo: state.deleteOrder.message
 })
 
 export default connect(mapStateToProps, { getOrders, deleteOrder })(Summary);

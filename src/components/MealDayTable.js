@@ -2,6 +2,7 @@ import React, { Component } from  'react';
 import MealDayTr from './MealBayTr';
 import { connect } from 'react-redux';
 import { createMenu } from '../actions/menuCreate';
+import { updateMenu } from '../actions/updateMenu';
 import { PropTypes } from 'prop-types';
 
 class MealDayTable extends Component{
@@ -18,6 +19,14 @@ class MealDayTable extends Component{
     componentWillMount(){
         console.log("Meal Day Table")
         console.log(this.props)
+    }
+
+    componentWillReceiveProps(data){
+        console.log("Component will recieve props")
+        console.log(data.menu)
+        console.log(data.menuCheck)
+        console.log("user_id")
+        console.log(localStorage.getItem("user_id"))
     }
 
     populateOptions(meals){
@@ -39,9 +48,15 @@ class MealDayTable extends Component{
         console.log("crazy stuff happening here")
         let menuData = {
             meal_ids: newMenu,
-            user_id: 10
+            user_id: parseInt(localStorage.getItem("user_id"))
         }
-        this.props.createMenu(JSON.stringify(menuData))
+        console.log(menuData)
+        if (this.props.menuCheck === false){
+            this.props.createMenu(JSON.stringify(menuData))
+        } else {
+            console.log("An update has to be done")
+            this.props.updateMenu(this.props.menuId, JSON.stringify(menuData))
+        }
     }
 
     render(){
@@ -77,11 +92,12 @@ class MealDayTable extends Component{
 }
 
 MealDayTable.propType = {
-    createMenu: PropTypes.func.isRequired
+    createMenu: PropTypes.func.isRequired,
+    updateMenu: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
-    menu: state.menuCreate.message
+    menuMessage: state.menuCreate.message
 })
 
-export default connect(null, {createMenu})(MealDayTable);
+export default connect(mapStateToProps, { createMenu, updateMenu})(MealDayTable);

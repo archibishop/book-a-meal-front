@@ -14,7 +14,7 @@ export const createMenu = menuData => dispatch => {
         .then(data => dispatch(
             {
                 type: MENU_LIST_CREATE,
-                action: data
+                action: data.message
             }
         ))
         .catch(error => error)

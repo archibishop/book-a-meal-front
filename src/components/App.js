@@ -7,6 +7,7 @@ import Summary from './Summary';
 import MealDay from './MealDay';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Switch} from 'react-router-dom';
+import { PrivateRoute } from './auth/auth';
 
 class App extends Component{
     render(){
@@ -17,7 +18,7 @@ class App extends Component{
                     <Route path='/login' component={Login}/>
                     <Route path='/order' component={Order} />
                     <Route path='/orders' component={Orders} />
-                    <Route path='/dashboard' component={Dashboard} />
+                    <PrivateRoute path='/dashboard' component={Dashboard} />
                     <Route path='/summary' component={Summary} />
                     <Route path='/mealday' component={MealDay} />
                 </Switch>

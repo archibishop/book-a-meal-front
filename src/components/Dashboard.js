@@ -9,6 +9,7 @@ import { getMeals } from '../actions/meals';
 import { addMeal } from '../actions/addMeal';
 import { updateMeal } from '../actions/updateMeal';
 import { deleteMeal } from '../actions/deleteMeal';
+import Notifications, { notify } from 'react-notify-toast';
 
 class Dashboard extends Component{
 
@@ -30,6 +31,37 @@ class Dashboard extends Component{
         console.log(this.state)
         console.log(this.props)
         this.props.getMeals(localStorage.getItem("x-access-token"));
+    }
+
+    componentWillReceiveProps(data){
+        console.log("Dahboard will recieve props")
+        console.log(data.addMealInfo.message)
+        console.log(data.editMealInfo.message)
+        console.log(data.deleteMealInfo.message)
+        
+        console.log(this.isEmpty(data.addMealInfo.message))
+
+        if (!this.isEmpty(data.addMealInfo.message)){
+            notify.show(data.addMealInfo.message, 'success', 5000);
+        } 
+        else if (!this.isEmpty(data.editMealInfo.message)){
+            notify.show(data.editMealInfo.message, 'success', 5000);
+        }
+        else if (!this.isEmpty(data.deleteMealInfo.message)) {
+            notify.show(data.deleteMealInfo.message, 'success', 5000);
+        }
+        if (JSON.stringify(this.props) !== JSON.stringify(data)) 
+        {
+            this.getMealList();
+        }
+    }
+
+    getMealList = () => {
+        this.props.getMeals(localStorage.getItem("x-access-token"));
+    }
+
+    isEmpty = (str) => {
+        return (!str || 0 === str.length);
     }
 
     toggleModal = (id) => {
@@ -77,6 +109,7 @@ class Dashboard extends Component{
         }
         console.log(mealData)
         this.props.addMeal(JSON.stringify(mealData))
+        this.toggleModal2();
     }
 
     handleEditMeal = (e) => {
@@ -91,7 +124,7 @@ class Dashboard extends Component{
         console.log(this.state.editMeal.meal_name)
         console.log(this.state.editMeal.id)
         this.props.updateMeal(this.state.editMeal.id, JSON.stringify(mealData))
-        this.toggleModal()
+        this.toggleModal1(mealData)
     }
 
     handleDeleteMeal = (e) => {
@@ -99,11 +132,13 @@ class Dashboard extends Component{
         console.log("Current state")
         console.log(this.state.id)
         this.props.deleteMeal(this.state.id)
+        this.toggleModal(this.state.id)
     }
 
     render(){
         return(
             <div className="dashboard">
+                <Notifications />
                 <Navb />
                 <div className="container">
                     <h1>MEALS</h1>
@@ -115,7 +150,7 @@ class Dashboard extends Component{
                 <Modal show={this.state.isOpen}
                     onClose={this.toggleModal}
                     orderList={this.props.orderList}>
-                    Are you sure you want delete an Meal.
+                    Are you sure you want delete the Meal.
                     <br />
                     <br />
                     <button className="button" onClick={this.handleDeleteMeal}>
@@ -181,7 +216,10 @@ Dashboard.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    mealList: state.meals.meals
+    mealList: state.meals.meals,
+    addMealInfo: state.addMeal.message,
+    editMealInfo: state.updateMeal.message,
+    deleteMealInfo: state.deleteMeal.message
 })
 
 export default connect(mapStateToProps, {getMeals, addMeal, updateMeal, deleteMeal})(Dashboard);
