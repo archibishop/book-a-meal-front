@@ -11,6 +11,8 @@ import deleteMealReducer from './deleteMealReducer';
 import menuReducer from './menuReducer';
 import createMenuReducer from './createMenuReducer';
 import updateMenuReducer from './updateMenuReducer';
+import catererReducer from './catererReducer';
+import catererMenuReducer from './catererMenuReducer';
 
 const mainReducer = combineReducers({
     user: userReducer,
@@ -24,7 +26,9 @@ const mainReducer = combineReducers({
     deleteMeal: deleteMealReducer,
     menu: menuReducer,
     menuCreate: createMenuReducer,
-    updateMenu: updateMenuReducer
+    updateMenu: updateMenuReducer,
+    caterer: catererReducer,
+    catererMenu: catererMenuReducer
 });
 
 export default mainReducer;

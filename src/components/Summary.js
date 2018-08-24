@@ -17,15 +17,10 @@ class Summary extends Component{
     }
 
     componentWillMount(){
-        console.log("Summary Data");
-        console.log(this.props);
         this.props.getOrders();
     }
 
     componentWillReceiveProps(data){
-        console.log("Component will recieve props")
-        console.log(data.orderData)
-        console.log(data.deleteOrderInfo)
     }
 
     toggleModal = (x) => {
@@ -33,21 +28,10 @@ class Summary extends Component{
             isOpen: !this.state.isOpen,
             id: x
         });
-        // this.setState({
-        //     isOpen1: !this.state.isOpen1,
-        //     id: x
-        // }, () => {
-        //     console.log(this.state.editMeal)
-        // });
-        console.log("Summary Data ");
-        console.log(x);
-        console.log(this.props);
     }
 
     handleDelete = () => {
-        console.log(this.state);
         this.props.deleteOrder(this.state.id)
-        console.log("Summary Delete");
         this.toggleModal()
     }
 

@@ -11,30 +11,21 @@ import Notifications, { notify } from 'react-notify-toast';
 export class Login extends Component {
 
     componentWillReceiveProps(authData) {
-        console.log("out here no where")
-        console.log(authData)
-        console.log(authData.userData.id)
         if (authData.userData.token) {
             if (authData.userData.role == 'user') {
                 localStorage.setItem("x-access-token", authData.userData.token)
                 localStorage.setItem("user_id", authData.userData.id)
-                console.log("print")
-                console.log(localStorage.getItem("user_id"))
                 notify.show("Welcome", 'success', 5000);
                 this.props.history.push("/order")
             }
             else if (authData.userData.role == 'admin') {
                 localStorage.setItem("x-access-token", authData.userData.token)
                 localStorage.setItem("user_id", authData.userData.id)
-                console.log("print")
-                console.log(localStorage.getItem("user_id"))
                 notify.show("Welcome", 'success', 5000);
                 this.props.history.push("/dashboard")
             }   
         }
         else {
-            console.log("Am here and i dont have a token")
-            console.log(authData.userData.message)
             notify.show(authData.userData.message, 'warning', 5000);
         }
     }
@@ -44,7 +35,6 @@ export class Login extends Component {
     }
 
     componentWillMount() {
-        console.log(this.props)
     }
 
     handleLogin = (e) => {
@@ -57,7 +47,6 @@ export class Login extends Component {
             email: e.target.elements.email.value,
             password: e.target.elements.password.value
         }
-        console.log(JSON.stringify(auth))
         this.props.login(JSON.stringify(auth))
         }
     }

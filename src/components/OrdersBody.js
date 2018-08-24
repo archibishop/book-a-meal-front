@@ -14,8 +14,6 @@ class OrdersBody extends Component{
     ));
 
     componentWillMount(){
-        // console.log("Orders Body")
-        // console.log(this.props)
     }
 
     toggle = (z) => {
@@ -44,7 +42,6 @@ class OrdersBody extends Component{
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
-                                            {/* <TableRow /> */}
                                             {this.renderOrders()}
                                         </tbody>    
                                     </table>

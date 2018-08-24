@@ -20,9 +20,3 @@ export const createMenu = menuData => dispatch => {
         .catch(error => error)
 }
 
-// dispatch(
-//     {
-//         type: MENU_LIST_CREATE,
-//         action: data
-//     }
-// )

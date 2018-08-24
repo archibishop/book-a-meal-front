@@ -27,20 +27,10 @@ class Dashboard extends Component{
     }
     
     componentWillMount(){
-        console.log("test")
-        console.log(this.state)
-        console.log(this.props)
         this.props.getMeals(localStorage.getItem("x-access-token"));
     }
 
     componentWillReceiveProps(data){
-        console.log("Dahboard will recieve props")
-        console.log(data.addMealInfo.message)
-        console.log(data.editMealInfo.message)
-        console.log(data.deleteMealInfo.message)
-        
-        console.log(this.isEmpty(data.addMealInfo.message))
-
         if (!this.isEmpty(data.addMealInfo.message)){
             notify.show(data.addMealInfo.message, 'success', 5000);
         } 
@@ -72,26 +62,16 @@ class Dashboard extends Component{
     }
 
     toggleModal1 = (meal) => {
-        // this.setState({
-        //     isOpen1: !this.state.isOpen1,
-        //     editMeal: meal
-        // });
         this.setState({
             isOpen1: !this.state.isOpen1,
             editMeal: meal }, () => {
-            console.log(this.state.editMeal)
         });
-        console.log(meal.meal_name)
-        console.log("Edit modal")
-        console.log(this.state)
-        console.log(this.state.isOpen1)
     }
 
     toggleModal2 = () => {
         this.setState({
             isOpen2: !this.state.isOpen2,
         });
-        console.log(this.state.isOpen1)
     }
 
     handleAdd = (e) => {
@@ -107,7 +87,6 @@ class Dashboard extends Component{
             price: parseInt(e.target.elements.lastname.value),
             meal_type: e.target.elements.country.value
         }
-        console.log(mealData)
         this.props.addMeal(JSON.stringify(mealData))
         this.toggleModal2();
     }
@@ -119,18 +98,12 @@ class Dashboard extends Component{
             price: parseInt(e.target.elements.lastname.value),
             meal_type: e.target.elements.country.value
         }
-        console.log(mealData)
-        console.log("Current state")
-        console.log(this.state.editMeal.meal_name)
-        console.log(this.state.editMeal.id)
         this.props.updateMeal(this.state.editMeal.id, JSON.stringify(mealData))
         this.toggleModal1(mealData)
     }
 
     handleDeleteMeal = (e) => {
         e.preventDefault();
-        console.log("Current state")
-        console.log(this.state.id)
         this.props.deleteMeal(this.state.id)
         this.toggleModal(this.state.id)
     }

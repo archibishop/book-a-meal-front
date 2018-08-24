@@ -5,12 +5,9 @@ class MealItem extends Component{
 
     constructor(props){
         super(props);
-        console.log("test")
-        console.log(this.props.meal.id)
     }
     
     componentDidMount(){
-        // console.log(this.props)
     }
 
     handleChange = (e) => {

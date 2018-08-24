@@ -1,8 +1,6 @@
 import { ORDERS_LIST } from './types'
 
 export const getOrders = authToken => dispatch => {
-    console.log("Inside Get Order Function")
-    // console.log(authToken);
     let payload = {
         method: 'GET',
         headers:{}

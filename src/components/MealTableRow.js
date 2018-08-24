@@ -4,18 +4,15 @@ import React, { Component} from 'react';
 class MealTr extends Component{
 
     componentWillMount() {
-        console.log(this.props)
     }
     
     handleEdit = (e) => {
         e.preventDefault();
-        console.log("Clicked Me")
         this.props.toggleEdit(this.props.meal);
     }
 
     handleDelete = (e) => {
         e.preventDefault();
-        console.log("Clicked Me Delete")
         this.props.toggleDelete(this.props.meal.id);
     }
     render(){

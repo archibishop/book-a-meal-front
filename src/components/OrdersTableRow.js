@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 class TableRow extends Component{
     componentWillMount(){
-        // console.log("TableRow")
-        // console.log(this.props)
     }
 
     handleDeleteToggle = () => {
@@ -22,7 +20,6 @@ class TableRow extends Component{
                     <td>{this.props.order.created_at}</td>
                     <td>{this.props.order.meal_name}</td>
                     <td>{this.props.order.price}</td>
-                    {/* <td><a className="button-edit" href="./EditOrderForm.html">Edit</a></td> */}
                 <td><button className="button-edit" onClick={this.handleEditToggle}>Edit</button></td>
                 <td><button className="button" onClick={this.handleDeleteToggle}>Delete</button></td>
                 </tr>

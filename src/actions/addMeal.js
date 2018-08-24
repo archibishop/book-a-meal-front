@@ -1,9 +1,7 @@
 import { ADD_MEAL, ADD_MEAL_FAILED} from './types';
 
 
-export const addMeal = mealData => dispatch => { 
-    console.log("ADD MEAL")
-    console.log(mealData)
+export const addMeal = mealData => dispatch => {
     let payload = {
         method: "POST",
         body: mealData,

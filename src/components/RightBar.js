@@ -14,7 +14,6 @@ class RightBar extends Component{
     }
 
     handleOrders(orders){
-        // this.props.handleAddOrder(orders)
         this.props.handleAddOrder(this.props.orderList)
     }
 

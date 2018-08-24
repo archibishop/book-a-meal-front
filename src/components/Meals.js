@@ -5,7 +5,6 @@ import MealTr from './MealTableRow';
 class Meals extends Component{
 
     componentWillMount(){
-        console.log(this.props)
     }
 
     renderMeals = () => this.props.meals.map((meal, index)=>(

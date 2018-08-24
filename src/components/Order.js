@@ -17,14 +17,10 @@ class Order extends Component {
     }
 
     componentWillMount() {
-        console.log("Order Page Loading")
-        console.log(localStorage.getItem('x-access-token'))
-        console.log(this.props)
         this.props.getMeals(localStorage.getItem("x-access-token"))
     }
 
     componentWillReceiveProps(newData) {
-        // console.log(newData)
     }
 
     handleOrders(order) {

@@ -15,14 +15,4 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
     );
 };
 
-// export default AuthRoute;
 
-// const PrivateRoute = ({ component: Component, ...rest }) => (
-//     const token = localStorage.getItem('x-access-token')
-//     <Route {...rest} render={(props) => (
-//         fakeAuth.isAuthenticated === true
-//             ? <Component {...props} />
-//             : <Redirect to='/login' />
-//     )} />
-
-// )

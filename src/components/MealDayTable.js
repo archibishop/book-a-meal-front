@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { createMenu } from '../actions/menuCreate';
 import { updateMenu } from '../actions/updateMenu';
 import { PropTypes } from 'prop-types';
+import Notifications, { notify } from 'react-notify-toast';
 
 class MealDayTable extends Component{
 
@@ -17,16 +18,16 @@ class MealDayTable extends Component{
     ));
 
     componentWillMount(){
-        console.log("Meal Day Table")
-        console.log(this.props)
     }
 
     componentWillReceiveProps(data){
-        console.log("Component will recieve props")
-        console.log(data.menu)
-        console.log(data.menuCheck)
-        console.log("user_id")
-        console.log(localStorage.getItem("user_id"))
+        if (!this.isEmpty(data.menuMessage.message)) {
+            notify.show(data.addMealInfo.message, 'success', 5000);
+        } 
+    }
+
+    isEmpty = (str) => {
+        return (!str || 0 === str.length);
     }
 
     populateOptions(meals){
@@ -38,23 +39,16 @@ class MealDayTable extends Component{
     createMenu = (e) => {
         e.preventDefault();
         let newMenu = []
-        console.log("You clicked me Hoooray")
-        console.log(e.target.meals.selectedOptions)
-        console.log(Array.from(e.target.meals.selectedOptions))
         Array.from(e.target.meals.selectedOptions).map( o => 
             newMenu.push(o.value)
         )
-        console.log(newMenu)
-        console.log("crazy stuff happening here")
         let menuData = {
             meal_ids: newMenu,
             user_id: parseInt(localStorage.getItem("user_id"))
         }
-        console.log(menuData)
         if (this.props.menuCheck === false){
             this.props.createMenu(JSON.stringify(menuData))
         } else {
-            console.log("An update has to be done")
             this.props.updateMenu(this.props.menuId, JSON.stringify(menuData))
         }
     }
@@ -62,6 +56,7 @@ class MealDayTable extends Component{
     render(){
         return(
             <div>
+                <Notifications />
                 <table >
                     <tbody>
                     <tr>
@@ -78,12 +73,8 @@ class MealDayTable extends Component{
                     <form onSubmit={this.createMenu}>
                         <label><span>Select Meals for the day</span></label>
                         <select multiple="multiple" id="meals" name="meals" size="2">
-                            {/* <option value="rolex">Rolex</option>
-                            <option value="canada">Rice and beans</option>
-                            <option value="usa">Katogo</option> */}
                             {this.populateOptions(this.props.meals)}
                         </select>
-                        {/* <button className="button-addmeal">Select Meals For the day</button> */}
                         <input type="submit" readOnly="Submit" />
                     </form>
             </div>

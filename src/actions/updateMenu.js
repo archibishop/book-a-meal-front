@@ -15,9 +15,3 @@ export const updateMenu =(id, menuData) => dispatch =>{
     .catch(error => console.log(error))
 }
 
-// dispatch(
-//     {
-//         type: UPDATE_MENU,
-//         payload: data
-//     }
-// )
