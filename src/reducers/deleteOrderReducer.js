@@ -11,7 +11,7 @@ export default function deleteOrderReducer(state=intialState, action){
         case DELETE_ORDER:
             return {
                 ...state,
-                message: action.payload
+                message: action.payload.message
             }
 
         case DELETE_ORDER_FAILED:

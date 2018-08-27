@@ -70,9 +70,9 @@ class MealDay extends Component{
         if (index !== -1) this.state.meal_ids.splice(index, 1)
         let menuData = {
             meal_ids: this.state.meal_ids,
-            user_id: localStorage.getItem("user_id")
+            user_id: parseInt(localStorage.getItem("user_id"))
         }
-        this.props.updateMenu(localStorage.getItem("user_id"), JSON.stringify(menuData))
+        this.props.updateMenu(this.state.idMenu, JSON.stringify(menuData))
     }
 
     render(){

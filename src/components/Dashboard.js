@@ -104,7 +104,8 @@ class Dashboard extends Component{
 
     handleDeleteMeal = (e) => {
         e.preventDefault();
-        this.props.deleteMeal(this.state.id)
+        console.log("here")
+        this.props.deleteMeal(parseInt(this.state.id))
         this.toggleModal(this.state.id)
     }
 

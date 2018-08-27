@@ -13,6 +13,7 @@ import createMenuReducer from './createMenuReducer';
 import updateMenuReducer from './updateMenuReducer';
 import catererReducer from './catererReducer';
 import catererMenuReducer from './catererMenuReducer';
+import userOrdersReducer from './userOrdersReducer';
 
 const mainReducer = combineReducers({
     user: userReducer,
@@ -28,7 +29,8 @@ const mainReducer = combineReducers({
     menuCreate: createMenuReducer,
     updateMenu: updateMenuReducer,
     caterer: catererReducer,
-    catererMenu: catererMenuReducer
+    catererMenu: catererMenuReducer,
+    userOrders: userOrdersReducer
 });
 
 export default mainReducer;

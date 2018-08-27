@@ -1,7 +1,7 @@
 import { MAKE_ORDER, MAKE_ORDER_FAILED } from './types'
 
 
-export const makeOrder = order => dispatch => {ß
+export const makeOrder = order => dispatch => {
     let payload = {
         method: 'POST',
         body: order,
