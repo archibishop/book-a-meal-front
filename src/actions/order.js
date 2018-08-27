@@ -1,7 +1,7 @@
 import { MAKE_ORDER, MAKE_ORDER_FAILED } from './types'
 
 
-export const makeOrder = order => dispatch => {
+export const makeOrder = order => dispatch => {ß
     let payload = {
         method: 'POST',
         body: order,
@@ -11,13 +11,12 @@ export const makeOrder = order => dispatch => {
         }
     }
     fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders`, payload)
-    .then(response => response.json)
-    .then(data=>dispatch(
+    .then(response => response.json())
+    .then(data => dispatch(
         {
             type: MAKE_ORDER,
-            message: data.transactions
+            payload: data.message
         }
     ))
     .catch(error=>error)
-    
 }

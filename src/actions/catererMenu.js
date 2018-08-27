@@ -13,9 +13,16 @@ export const getCatererMenu = (id,authToken) => dispatch => {
         .then(data => dispatch(
             {
                 type: CATERER_MENU,
-                payload: data.Menu.meal_ids
+                payload: data.Menu
             }
         ))
         .catch(error => error)
 
 }
+
+// dispatch(
+//     {
+//         type: CATERER_MENU,
+//         payload: data.Menu
+//     }
+// )

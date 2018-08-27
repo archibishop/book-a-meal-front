@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { getMeals } from '../actions/meals'
 import { makeOrder } from '../actions/order'
 import { PropTypes } from 'prop-types'
+import Notifications, { notify } from 'react-notify-toast';
 
 class Order extends Component {
     constructor(props) {
@@ -21,6 +22,9 @@ class Order extends Component {
     }
 
     componentWillReceiveProps(newData) {
+        if (newData.orderInfo === "Transacrtion Successfully Made"){
+            notify.show("Order has been made.", 'success', 5000);
+        }
     }
 
     handleOrders(order) {
@@ -40,16 +44,18 @@ class Order extends Component {
         let length = orders.length
         for (let i = 0; i < length; i++) {
             let orderData = {
-                meal_name: "frenchbeans",
-                user_id: 1
+                meal_name: orders[i].meal_name,
+                user_id: parseInt(localStorage.getItem("user_id"))
             }
             this.props.makeOrder(JSON.stringify(orderData))
+            
         }
     }
     render() {
         return (
             <div>
                 <Navbar />
+                <Notifications />
                 <div className="row">
                     <LeftBar getOrder={this.handleOrders.bind(this)} />
                     <RightBar orderList={this.state.orders} deleteOrder={this.handleRemoveOrder.bind(this)}
@@ -66,7 +72,8 @@ Order.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    mealData: state.meals.meals
+    mealData: state.meals.meals,
+    orderInfo: state.order.message
 })
 
 export default connect(mapStateToProps, { getMeals, makeOrder })(Order);

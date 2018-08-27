@@ -17,26 +17,21 @@ class MealItem extends Component{
     }
 
     handleSubmit = (e) =>{
-        this.props.orderList(this.props.meal.meal_name)
+        this.props.orderList(this.props.meal)
     }
     
     render(){
         return(
             <div>
                 <div className="row">
-                    <div className="col">
-                        <img src={rolex} className="fakeimg" />
-                    </div>
                     <div className="col2">
-                        <p id="dishname1"><strong>{this.props.meal.meal_name}</strong></p>
-                        <p>{this.props.meal.description}</p>
+                        <p id="dishname1">{this.props.meal.meal_name}</p>
                     </div>
                     <div className="col3">
-                        <input type="number" id="Thing1" name="Thing" min="0" max="99" defaultValue={0} className="qtyinput" onChange={this.handleChange} />
+                        <p>{this.props.meal.meal_type}</p>
                     </div>
                     <div className="col">
-                        <p>Price : <span id="testValue1" name='testValue1'>{this.props.meal.price}</span></p>
-                        <p>Total : <span name='testVal1'>{this.props.meal.total}</span></p>
+                        <p><span id="testValue1" name='testValue1'>{this.props.meal.price}</span></p>
                     </div>
                     <div className="col4">
                         <button className="buttons" onClick={this.handleSubmit}>Add  To Cart</button>

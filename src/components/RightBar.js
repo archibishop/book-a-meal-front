@@ -13,19 +13,21 @@ class RightBar extends Component{
         this.props.deleteOrder(order)
     }
 
-    handleOrders(orders){
+    handleOrders = () => {
         this.props.handleAddOrder(this.props.orderList)
+        this.toggleModal()
     }
 
     componentWillMount(){
-        console.log(this.state.isOpen);
+    }
+
+    componentWillReceiveProps(data){
     }
 
     toggleModal = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
-        console.log(this.state.isOpen);
     }
 
     renderOrderList = () => this.props.orderList.map((order, index) => (
@@ -54,7 +56,7 @@ class RightBar extends Component{
                     Are you sure you want to make an order.
                     <br />
                     <br />
-                    <button className="button-edit" onClick={this.handleOrders}>
+                    <button className="button-edit" onClick={this.handleOrders.bind(this)}>
                         Order
                     </button>
                 </Modal>

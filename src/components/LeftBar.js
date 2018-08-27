@@ -65,37 +65,27 @@ class LeftBar extends Component{
                     "business_name": "Crunchy Foods"
                 },
                 {
-                    'id': 3,
+                    'id': 10,
                     "business_name": "Fast Foods"
-                }
-            ],
-            menuList: [
-                {
-                    'id': 1,
-                    'meal_name': "frenchbeans",
-                    "price": 3000,
-                    "description": "Best meal ever",
-                    "total": 0
                 },
                 {
                     'id': 3,
-                    'meal_name': "chicken",
-                    "price": 5000,
-                    "description": "Sweet",
-                    "total": 0
+                    "business_name": "Fresh Foods"
                 }
-            ]
+            ],
+            menuList: [],
+            catererId: null,
+            ids: []
         };
     }
 
     componentWillMount(){
         this.props.getCaterer(localStorage.getItem("x-access-token"));
         this.props.getMeals(localStorage.getItem("x-access-token"));
-        this.props.getCatererMenu(2, localStorage.getItem("x-access-token"))
+        // this.props.getCatererMenu(2, localStorage.getItem("x-access-token"))
     }
 
     componentDidMount() {
-        
     }
 
     handleOrderList(meal){
@@ -108,39 +98,18 @@ class LeftBar extends Component{
         ));
     }
     
-    renderMenu = () => this.state.menuList.map((meal,index) => (
+    renderMenu = () => this.props.catererMenu.map((meal,index) => (
         <MealItem
         orderList={this.handleOrderList.bind(this)}
         key={index}
         meal={meal}/>
     )); 
 
-    setMenuList = (x) => {
-        let ids = []
-        ids = this.props.catererMenu
-        let mealx = [];
-        for (let i = 0; i < this.props.mealList.length; i++) {
-            for (let p = 0; p < ids.length; p++) {
-                if (this.props.mealList[i].id === ids[p]) {
-                    mealx.push(this.props.mealList[i])
-                }
-            }
-        }
-
-        this.setState({
-            menuList: mealx
-        }, () => {
-        });
-        this.props.getCaterer(localStorage.getItem("x-access-token"))
-        this.props.getCatererMenu(2, localStorage.getItem("x-access-token"))
-    }
-
     componentWillReceiveProps(data){
     }
 
     getCatererMenu = (e) => {
-        this.setMenuList(e.target.value)
-        // so at this point we get selected value and get the meal ids
+        this.props.getCatererMenu(e.target.value, localStorage.getItem("x-access-token"))
     }
 
     render(){
@@ -154,6 +123,7 @@ class LeftBar extends Component{
                         <p>    
                             Select caterer
                                 <select id="caterer" name="caterer" onChange={this.getCatererMenu}>
+                                    <option disabled selected value> -- select an option -- </option>
                                     {this.renderOptions()}
                                 </select>
                         </p>
@@ -163,6 +133,17 @@ class LeftBar extends Component{
                         </div>
 
                         <div id="all_meals" className="tabcontent">
+                            <div className="row">
+                                <div className="col2">
+                                    <strong>Meal Name</strong>
+                                </div>
+                                <div className="col3">
+                                    <strong>Type</strong>
+                                </div>
+                                <div className="col">
+                                    <strong>Price</strong>(shs/=)
+                                </div>
+                            </div>
                             <br />
                                 {this.renderMenu()}
                             <br />
