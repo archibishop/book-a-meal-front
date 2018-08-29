@@ -31,15 +31,6 @@ class Dashboard extends Component{
     }
 
     componentWillReceiveProps(data){
-        if (!this.isEmpty(data.addMealInfo.message)){
-            notify.show(data.addMealInfo.message, 'success', 5000);
-        } 
-        else if (!this.isEmpty(data.editMealInfo.message)){
-            notify.show(data.editMealInfo.message, 'success', 5000);
-        }
-        else if (!this.isEmpty(data.deleteMealInfo.message)) {
-            notify.show(data.deleteMealInfo.message, 'success', 5000);
-        }
         if (JSON.stringify(this.props) !== JSON.stringify(data)) 
         {
             this.getMealList();

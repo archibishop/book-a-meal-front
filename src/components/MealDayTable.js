@@ -3,6 +3,7 @@ import MealDayTr from './MealBayTr';
 import { connect } from 'react-redux';
 import { createMenu } from '../actions/menuCreate';
 import { updateMenu } from '../actions/updateMenu';
+import { getMenu } from '../actions/menu';
 import { PropTypes } from 'prop-types';
 import Notifications, { notify } from 'react-notify-toast';
 
@@ -21,9 +22,9 @@ class MealDayTable extends Component{
     }
 
     componentWillReceiveProps(data){
-        if (!this.isEmpty(data.menuMessage.message)) {
-            notify.show(data.addMealInfo.message, 'success', 5000);
-        } 
+        // if (!this.isEmpty(data.menuMessage.message)) {
+        //     notify.show(data.addMealInfo.message, 'success', 5000);
+        // } 
     }
 
     isEmpty = (str) => {
@@ -51,6 +52,7 @@ class MealDayTable extends Component{
         } else {
             this.props.updateMenu(this.props.menuId, JSON.stringify(menuData))
         }
+        this.props.getMenu(localStorage.getItem("user_id"));
     }
 
     render(){
@@ -84,11 +86,12 @@ class MealDayTable extends Component{
 
 MealDayTable.propType = {
     createMenu: PropTypes.func.isRequired,
-    updateMenu: PropTypes.func.isRequired
+    updateMenu: PropTypes.func.isRequired,
+    getMenu: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     menuMessage: state.menuCreate.message
 })
 
-export default connect(mapStateToProps, { createMenu, updateMenu})(MealDayTable);
+export default connect(mapStateToProps, { createMenu, updateMenu, getMenu})(MealDayTable);

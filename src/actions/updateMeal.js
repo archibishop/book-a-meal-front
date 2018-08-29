@@ -1,4 +1,5 @@
 import { UPDATE_MEAL, UPDATE_MEAL_FAILED } from './types';
+import Notifications, { notify } from 'react-notify-toast';
 
 export const updateMeal = (id, orderData) => dispatch => {
     let payload = {
@@ -18,8 +19,7 @@ export const updateMeal = (id, orderData) => dispatch => {
                 payload: data
             }
             );
-            console.log("here")
-            console.log(data.message)
+            notify.show(data.message, 'success', 5000);
         }
     )
     .catch(error=>error)

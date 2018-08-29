@@ -190,6 +190,12 @@ input[type=submit] {
     margin-top: 20px;
 }
 
+.cardx {
+    background-color: rgba(186, 162, 45, 0.0);
+    padding: 20px;
+    margin-top: 20px;
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";

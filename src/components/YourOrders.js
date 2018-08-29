@@ -52,12 +52,16 @@ class Orders extends Component{
             meal_name: e.target.meals.value
         }
         this.props.updateOrder(this.state.id, JSON.stringify(data));
+        this.props.getOrders()
+        this.props.getOrdersUser() 
         this.toggleModal1()
     }
 
     handleDelete = (e) => {
         e.preventDefault();
         this.props.deleteOrder(this.state.id)
+        this.props.getOrders()
+        this.props.getOrdersUser() 
         this.toggleModal()
     }
 

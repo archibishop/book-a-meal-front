@@ -6,6 +6,7 @@ import { connect } from  'react-redux';
 import { getMenu } from '../actions/menu';
 import { getMeals } from '../actions/meals';
 import { updateMenu } from '../actions/updateMenu';
+import { getCatererMenu } from '../actions/catererMenu';
 import { PropTypes } from 'prop-types';
 
 class MealDay extends Component{
@@ -24,21 +25,25 @@ class MealDay extends Component{
     componentWillMount(){
         this.props.getMenu(localStorage.getItem("user_id"));
         this.props.getMeals(localStorage.getItem('x-access-token'));   
+        this.props.getCatererMenu(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"))
     }
 
     componentDidMount() {
     }
 
     componentWillReceiveProps(data){
+        console.log(data)
         let menuPlus = []
         let menuArray = []
         let menuCheck = false
         let idMenu = null
+        let menu_pos = null
         for(let i = 0; i < data.menu.length; i++){
             if (data.menu[i].user_id === parseInt(localStorage.getItem('user_id'))){
                 menuCheck = true
                 menuArray = data.menu[i]  
                 idMenu = data.menu[i].id
+                menu_pos = i
             }
         }
         for (let i = 0; i < menuArray.meal_ids.length; i++){
@@ -51,7 +56,7 @@ class MealDay extends Component{
         this.setState({
             menu: menuPlus,
             mealList: data.mealList,
-            meal_ids: data.menu[1].meal_ids,
+            meal_ids: data.menu[menu_pos].meal_ids,
             menuListCheck: menuCheck,
             menuId: idMenu
         }, () => {
@@ -66,13 +71,20 @@ class MealDay extends Component{
     }
   
     handleDelete = () => {
+        console.log(this.state.menu)
         let index = this.state.meal_ids.indexOf(this.state.id)
         if (index !== -1) this.state.meal_ids.splice(index, 1)
         let menuData = {
             meal_ids: this.state.meal_ids,
             user_id: parseInt(localStorage.getItem("user_id"))
         }
-        this.props.updateMenu(this.state.idMenu, JSON.stringify(menuData))
+        console.log(this.state.meal_ids)
+        console.log(parseInt(localStorage.getItem("user_id")))
+        console.log(menuData)
+        console.log(this.state.menuId)
+        this.props.updateMenu(this.state.menuId, JSON.stringify(menuData))
+        this.props.getMenu(localStorage.getItem("user_id"));
+        this.toggleModal()
     }
 
     render(){
@@ -102,14 +114,16 @@ class MealDay extends Component{
 MealDay.propTypes = {
     getMenu: PropTypes.func.isRequired,
     getMeals: PropTypes.func.isRequired,
+    getCatererMenu: PropTypes.func.isRequired,
     updateMenu: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     menu: state.menu.menu,
+    catererMenu: state.catererMenu.menu,
     mealList: state.meals.meals
 }) 
 
 
 
-export default connect(mapStateToProps, { getMenu, getMeals, updateMenu })(MealDay);
+export default connect(mapStateToProps, { getMenu, getMeals, updateMenu, getCatererMenu })(MealDay);

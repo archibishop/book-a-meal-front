@@ -27,7 +27,7 @@ class OrdersBody extends Component{
         return(
             <div className="row">
                 <div className="leftcolumn1">
-                    <div className="card">
+                    <div className="cardx">
                         <h1><strong>Your Orders</strong></h1>
                         <div id="all_meals" >
                             <br/>

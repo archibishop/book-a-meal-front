@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types';
 import  { connect } from 'react-redux';
 import { getOrders } from '../actions/orders';
 import { deleteOrder } from '../actions/deleteOrder';
+import Notifications, { notify } from 'react-notify-toast';
 
 class Summary extends Component{
     constructor(props){
@@ -41,6 +42,7 @@ class Summary extends Component{
         return(
             <div>
                 <Navb />
+                <Notifications />
                 <br />
                 <OrderSum orders={this.props.orderData} toggleModalBtn={this.toggleModal.bind(this)} />
                 <Modal show={this.state.isOpen}
