@@ -1,6 +1,9 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: white;
+    background: url(../img/image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     }
 /*
 .bodyImage{
@@ -19,6 +22,10 @@ ul {
 
 li {
     float: left;
+}
+
+label {
+    color: white;
 }
 
 li a {
@@ -50,11 +57,16 @@ table {
 td, th {
     /*border: 1px solid #dddddd;*/
     text-align: center;
-    padding: 8px;
+    padding: 10px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: rgba(186, 162, 45, 0.4)
+}
+
+tr:nth-child(odd) {
+    
+    background-color: rgba(186, 162, 45, 0.4)
 }
 
 .button {
@@ -128,7 +140,7 @@ h1{
 .form{
     /* Hidden By default */
     /**/border-radius: 5px;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     padding: 20px;
     border-radius: 4px;
     height: 200px;
@@ -137,13 +149,13 @@ h1{
     padding-bottom: 50px;    
 }
 
-.form1{
+.form1x{
     /* Hidden By default */
     /**/border-radius: 5px;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     padding: 20px;
     border-radius: 4px;
-    height: 550px;
+    height: 450px;
     width: 600px;
     margin:0 auto;
     padding-bottom: 50px;
@@ -159,9 +171,13 @@ h1{
     height: 250px;
     width: 600px;
     margin:0 auto;
-    padding-bottom: 50px;
-    
+    padding-bottom: 50px; 
 }
+
+/* .label{
+    text-decoration: none;
+    color: #f2f2f2;
+} */
 
 input[type=text], input[type=email],input[type=password], select {
     width: 100%;
@@ -232,3 +248,11 @@ h3{
 dashboard{
     background: white;
 }
+
+.select-signup{
+    /* Hidden By default */
+    padding-left: 650px;
+    padding-top: 25px;
+    
+}
+/* background-color: rgba(186, 162, 45, 0.4) */

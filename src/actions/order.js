@@ -1,4 +1,5 @@
-import { MAKE_ORDER, MAKE_ORDER_FAILED } from './types'
+import { MAKE_ORDER, MAKE_ORDER_FAILED } from './types';
+import Notifications, { notify } from 'react-notify-toast';
 
 
 export const makeOrder = order => dispatch => {
@@ -12,11 +13,14 @@ export const makeOrder = order => dispatch => {
     }
     fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders`, payload)
     .then(response => response.json())
-    .then(data => dispatch(
+    .then(data => {dispatch(
         {
             type: MAKE_ORDER,
             payload: data.message
         }
-    ))
+        );
+        notify.show(data.message, 'success', 5000);
+    }
+    )
     .catch(error=>error)
 }

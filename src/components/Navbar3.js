@@ -6,7 +6,7 @@ class Navb extends Component{
         return(
             <ul>
                 <li><a href="#home">BOOK-A-MEAL</a></li>
-                <li><Link to='./dashboard' className="active">Meals</Link></li>
+                <li><Link to='./dashboard'>Meals</Link></li>
                 <li><Link to='./summary'>Summary</Link></li>
                 <li><Link to='./mealday'>Meals for the day</Link></li>
                 <li className="rightside"><Link to='./login' >Sign Out</Link></li>

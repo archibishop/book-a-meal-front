@@ -21,6 +21,7 @@ class Summary extends Component{
     }
 
     componentWillReceiveProps(data){
+        
     }
 
     toggleModal = (x) => {
@@ -32,6 +33,7 @@ class Summary extends Component{
 
     handleDelete = () => {
         this.props.deleteOrder(this.state.id)
+        this.props.getOrders();
         this.toggleModal()
     }
 
@@ -40,17 +42,6 @@ class Summary extends Component{
             <div>
                 <Navb />
                 <br />
-                <div className="container">
-                    <h1>Summary For the day</h1>
-                    <div className="summary">
-                        <h3>Orders : 10</h3>
-                        <h3>BreakFast:3</h3>
-                        <h3>Lunch: 5</h3>
-                        <h3>Supper: 2 </h3>
-                        <h3>Total: 15000</h3>
-                        <br/>
-                    </div>
-                </div>
                 <OrderSum orders={this.props.orderData} toggleModalBtn={this.toggleModal.bind(this)} />
                 <Modal show={this.state.isOpen}
                     onClose={this.toggleModal}>

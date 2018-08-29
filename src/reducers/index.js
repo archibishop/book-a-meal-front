@@ -14,6 +14,7 @@ import updateMenuReducer from './updateMenuReducer';
 import catererReducer from './catererReducer';
 import catererMenuReducer from './catererMenuReducer';
 import userOrdersReducer from './userOrdersReducer';
+import signUpReducer from './signUpReducer';
 
 const mainReducer = combineReducers({
     user: userReducer,
@@ -30,7 +31,8 @@ const mainReducer = combineReducers({
     updateMenu: updateMenuReducer,
     caterer: catererReducer,
     catererMenu: catererMenuReducer,
-    userOrders: userOrdersReducer
+    userOrders: userOrdersReducer,
+    signUpReducer: signUpReducer
 });
 
 export default mainReducer;

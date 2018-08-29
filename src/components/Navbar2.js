@@ -8,7 +8,7 @@ class Navbar extends Component{
             <div>
                 <ul>
                     <li><a href="#">BOOK-A-MEAL</a></li>
-                    <li><Link to={'/order'} className="active">Place an Order</Link></li>
+                    <li><Link to={'/order'} >Place an Order</Link></li>
                     <li><Link to={"/orders"}>Your Orders</Link></li>
                     <li className="rightside"><Link to={"/login"}>Log Out</Link></li>
                 </ul>

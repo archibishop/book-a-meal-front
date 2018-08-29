@@ -1,5 +1,6 @@
 
 import { LOGIN_USER, FETCH_USERS_REJECTED} from './types'; 
+import Notifications, { notify } from 'react-notify-toast';
 
 export const login = authData => dispatch => {
         let payload = {
@@ -12,13 +13,15 @@ export const login = authData => dispatch => {
 
         fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/auth/login`, payload)
         .then(response=>response.json())
-        .then(data=>dispatch(
+        .then(data=>{
+            dispatch(
             {
                 type: LOGIN_USER,
                 payload: data
-            }
-        ))
+            });
+            notify.show(data.message, 'success', 5000);
+        })
         .catch(error=>error)
     }
 
-
+// notify.show("Password field cannot be empty", 'warning', 5000)

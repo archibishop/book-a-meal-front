@@ -91,6 +91,7 @@ h1{
 .leftcolumn {   
     float: left;
     width: 70%;
+    background-color: rgba(186, 162, 45, 0.0)
 }
 .leftcolumn1 {   
     float: left;
@@ -292,7 +293,11 @@ td, th {
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    color: white;
+}
+
+tr:nth-child(odd) {
+    color: white;
 }
 
 input[type=number], select {

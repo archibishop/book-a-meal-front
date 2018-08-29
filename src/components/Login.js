@@ -63,13 +63,13 @@ export class Login extends Component {
 
                 <h1>SIGN IN</h1>
 
-                <div className="form">
+                <div className="formx">
                     <form action="./OrderPage.html" onSubmit={this.handleLogin}>
                         <label name="email"><strong>Email</strong></label>
                         <input type="email" id="email" name="email" placeholder="Your email.." />
 
                         <label name="password"><strong>Password</strong></label>
-                        <input type="password" id="password" name="password" placeholder="Password.." />
+                        <input type="password" id="password" name="password" placeholder="Password.." minlength="5" required />
 
 
                         <input id="login-submit" type="submit" readOnly="Submit" />
