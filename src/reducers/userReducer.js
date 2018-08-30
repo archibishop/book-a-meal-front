@@ -9,7 +9,6 @@ const intialState = {
 export default function userReducer(state = intialState , action) {
     switch (action.type) {
         case LOGIN_USER: {
-            console.log(action.payload)
             return {     
                 ...state,
                 message: action.payload

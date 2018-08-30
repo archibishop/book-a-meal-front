@@ -196,6 +196,29 @@ input[type=submit] {
     margin-top: 20px;
 }
 
+.cardp {
+    color: rgb(222, 234, 255);
+    background-color: rgba(112, 98, 27, 0.43);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.cardz {
+    color: rgb(222, 234, 255);
+    background-color: rgba(120, 103, 48, 0.43);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.tablinks {
+    color: white
+}
+
+.caterer {
+    color: rgb(222, 234, 255);
+    background-color: rgba(112, 99, 36, 0.81);
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";
@@ -216,7 +239,8 @@ input[type=submit] {
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    color: rgba(245, 239, 247, 0.99);
+    background-color: rgba(112, 99, 36, 0.75);
 }
 
 /* Style the buttons inside the tab */

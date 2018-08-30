@@ -32,7 +32,6 @@ class MealDay extends Component{
     }
 
     componentWillReceiveProps(data){
-        console.log(data)
         let menuPlus = []
         let menuArray = []
         let menuCheck = false
@@ -71,17 +70,12 @@ class MealDay extends Component{
     }
   
     handleDelete = () => {
-        console.log(this.state.menu)
         let index = this.state.meal_ids.indexOf(this.state.id)
         if (index !== -1) this.state.meal_ids.splice(index, 1)
         let menuData = {
             meal_ids: this.state.meal_ids,
             user_id: parseInt(localStorage.getItem("user_id"))
         }
-        console.log(this.state.meal_ids)
-        console.log(parseInt(localStorage.getItem("user_id")))
-        console.log(menuData)
-        console.log(this.state.menuId)
         this.props.updateMenu(this.state.menuId, JSON.stringify(menuData))
         this.props.getMenu(localStorage.getItem("user_id"));
         this.toggleModal()

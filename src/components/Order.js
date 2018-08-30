@@ -23,7 +23,7 @@ class Order extends Component {
 
     componentWillReceiveProps(newData) {
         if (newData.orderInfo === "Transacrtion Successfully Made"){
-            notify.show("Order has been made.", 'success', 5000);
+            // notify.show("Order has been made.", 'success', 5000);
         }
     }
 
@@ -40,7 +40,7 @@ class Order extends Component {
         this.setState({ orders: orders })
     }
 
-    handleAddOrder(orders) {
+    handleAddOrder = (orders) => {
         let length = orders.length
         for (let i = 0; i < length; i++) {
             let orderData = {
@@ -51,6 +51,15 @@ class Order extends Component {
             
         }
     }
+
+    handleClearOrderList = () => {
+        let orders = this.state.orders
+        orders.length = 0
+        this.setState({ orders: orders })
+        
+    }
+
+
     render() {
         return (
             <div>
@@ -59,7 +68,7 @@ class Order extends Component {
                 <div className="row">
                     <LeftBar getOrder={this.handleOrders.bind(this)} />
                     <RightBar orderList={this.state.orders} deleteOrder={this.handleRemoveOrder.bind(this)}
-                        handleAddOrder={this.handleAddOrder.bind(this)} />
+                        handleAddOrder={this.handleAddOrder.bind(this)} clearList={this.handleClearOrderList.bind(this) } />
                 </div>
             </div>
         );

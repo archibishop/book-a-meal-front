@@ -14,18 +14,14 @@ class SignUp extends Component {
     }
 
     handleSelect = (e) => {
-        // e.preventDefault();
-        console.log(e.target.value);
         if (e.target.value === 'user'){
             this.setState({
                 showUser: true
             });
-            console.log("handle select user")
         } else if (e.target.value === 'caterer'){
             this.setState({
                 showUser: false
             });
-            console.log("handle select admin")
         }
     }
 

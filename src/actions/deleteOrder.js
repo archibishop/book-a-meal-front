@@ -16,7 +16,6 @@ export const deleteOrder = id => dispatch =>{
             type: DELETE_ORDER,
             payload: data
         });
-        console.log(data)
         notify.show(data.message, 'warning', 5000);
     }
     )

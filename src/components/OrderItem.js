@@ -6,7 +6,6 @@ class OrderItem extends Component{
     }
 
     componentWillMount(){
-        console.log(this.props)
     }
 
     render(){

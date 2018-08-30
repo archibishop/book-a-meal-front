@@ -64,8 +64,7 @@ tr:nth-child(even) {
     background-color: rgba(186, 162, 45, 0.4)
 }
 
-tr:nth-child(odd) {
-    
+tr:nth-child(odd) {  
     background-color: rgba(186, 162, 45, 0.4)
 }
 
@@ -255,4 +254,16 @@ dashboard{
     padding-top: 25px;
     
 }
-/* background-color: rgba(186, 162, 45, 0.4) */
+/* background-color: rgba(186, 162, 45, 0.4) 
+color: rgb(222, 234, 255);
+background-color: rgba(112, 98, 27, 0.43)
+*/
+
+/* 
+background-color: rgba(112, 99, 36, 0.81) 
+
+color: rgba(245, 239, 247, 0);
+background-color: rgba(112, 99, 36, 0.75);
+*/
+
+

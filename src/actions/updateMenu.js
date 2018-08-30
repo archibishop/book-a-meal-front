@@ -21,6 +21,6 @@ export const updateMenu =(id, menuData) => dispatch =>{
             );
             notify.show(data.message, 'success', 5000);
         })
-    .catch(error => console.log(error))
+    .catch(error => notify.show(error, 'success', 5000))
 }
 

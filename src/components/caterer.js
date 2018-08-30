@@ -8,7 +8,6 @@ class Caterer extends Component {
 
     handleSignUp = (e) => {
         e.preventDefault();
-        console.log(e.target.bname.value);
         let data = {
             "business_name": e.target.bname.value,
             "fname": e.target.fname.value,
@@ -18,7 +17,6 @@ class Caterer extends Component {
             "location": e.target.location.value,
             "role_id": 1,
         }
-        console.log("You have clicked sign up caterer");
         this.props.signup(JSON.stringify(data))
     }
 

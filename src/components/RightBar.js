@@ -6,7 +6,10 @@ class RightBar extends Component{
 
     constructor(props) {
         super(props)
-        this.state = { isOpen: false };
+        this.state = { 
+            isOpen: false,
+            orderList: this.props.orderList
+        };
     }
     
     handleDelete(order) {
@@ -15,6 +18,7 @@ class RightBar extends Component{
 
     handleOrders = () => {
         this.props.handleAddOrder(this.props.orderList)
+        this.props.clearList()
         this.toggleModal()
     }
 
@@ -30,7 +34,7 @@ class RightBar extends Component{
         });
     }
 
-    renderOrderList = () => this.props.orderList.map((order, index) => (
+    renderOrderList = () => this.state.orderList.map((order, index) => (
         <OrderItem
             orderDeleteByName={this.handleDelete.bind(this)}
             key={index}
@@ -41,7 +45,7 @@ class RightBar extends Component{
         return(
             <div>
                 <div className="rightcolumn">
-                    <div className="card">
+                    <div className="cardz">
                         <h2>Your Order</h2>
                         <div id='cart'>
                             {this.renderOrderList()}

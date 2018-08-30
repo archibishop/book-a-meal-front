@@ -116,7 +116,7 @@ class LeftBar extends Component{
         return(
             <div>
                 <div className="leftcolumn">
-                    <div className="card">
+                    <div className="cardp">
                         <p>
                             <strong>You can make an order now:</strong>
                         </p>

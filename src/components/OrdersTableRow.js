@@ -5,12 +5,10 @@ class TableRow extends Component{
     }
 
     handleDeleteToggle = () => {
-        console.log(this.props.order.id)
         this.props.toggleButtonModal(this.props.order.id)
     }
 
     handleEditToggle = () => {
-        console.log(this.props.order.id)
         this.props.toggleButtonModal1(this.props.order.id)
     }
     render(){

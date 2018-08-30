@@ -11,13 +11,9 @@ class User extends Component {
     }
 
     componentWillMount(){
-        console.log("Am here in user signup")
-        console.log(this.props)
     }
 
     componentWillReceiveProps(data){
-        console.log("Am here recieving props")
-        console.log(data)
     }
 
     handleSignUp = (e) => {
