@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import Nav from './Navbar';
+import Nav from '../navs/Navbar';
 import User from './user';
 import Caterer from './caterer';
 import Notifications, { notify } from 'react-notify-toast';

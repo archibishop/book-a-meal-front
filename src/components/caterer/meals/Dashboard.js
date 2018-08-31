@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Navb from './Navbar3';
+import Navb from '../../navs/Navbar3';
 import Meals from './Meals';
-import '../css/Styles.css';
-import Modal from './Modal';
+import '../../../css/Styles.css';
+import Modal from '../../modal/Modal';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { getMeals } from '../actions/meals';
-import { addMeal } from '../actions/addMeal';
-import { updateMeal } from '../actions/updateMeal';
-import { deleteMeal } from '../actions/deleteMeal';
+import { getMeals } from '../../../actions/meals';
+import { addMeal } from '../../../actions/addMeal';
+import { updateMeal } from '../../../actions/updateMeal';
+import { deleteMeal } from '../../../actions/deleteMeal';
 import Notifications, { notify } from 'react-notify-toast';
 
 class Dashboard extends Component{
@@ -27,7 +27,7 @@ class Dashboard extends Component{
     }
     
     componentWillMount(){
-        this.props.getMeals(localStorage.getItem("x-access-token"));
+        this.props.getMeals(localStorage.getItem("user_id"),localStorage.getItem("x-access-token"));
     }
 
     componentWillReceiveProps(data){
@@ -38,7 +38,7 @@ class Dashboard extends Component{
     }
 
     getMealList = () => {
-        this.props.getMeals(localStorage.getItem("x-access-token"));
+        this.props.getMeals(localStorage.getItem("user_id"),localStorage.getItem("x-access-token"));
     }
 
     isEmpty = (str) => {
@@ -76,7 +76,8 @@ class Dashboard extends Component{
         let mealData = {
             meal_name: e.target.elements.firstname.value,
             price: parseInt(e.target.elements.lastname.value),
-            meal_type: e.target.elements.country.value
+            meal_type: e.target.elements.country.value,
+            admin_id: parseInt(localStorage.getItem('user_id'))
         }
         this.props.addMeal(JSON.stringify(mealData))
         this.toggleModal2();
@@ -87,7 +88,8 @@ class Dashboard extends Component{
         let mealData = {
             meal_name: e.target.elements.firstname.value,
             price: parseInt(e.target.elements.lastname.value),
-            meal_type: e.target.elements.country.value
+            meal_type: e.target.elements.country.value,
+            admin_id: parseInt(localStorage.getItem('user_id'))
         }
         this.props.updateMeal(this.state.editMeal.id, JSON.stringify(mealData))
         this.toggleModal1(mealData)

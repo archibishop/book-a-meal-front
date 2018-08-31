@@ -18,7 +18,7 @@ class MealTr extends Component{
     render(){
         return(
             <tr>
-                <td>{ this.props.meal.id }</td>
+                {/* <td>{ this.props.meal.id }</td> */}
                 <td>{ this.props.meal.meal_name }</td>
                 <td>{ this.props.meal.meal_type }</td>
                 <td>{ this.props.meal.price }</td>

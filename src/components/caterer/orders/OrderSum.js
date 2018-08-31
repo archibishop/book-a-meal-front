@@ -20,7 +20,7 @@ class OrderSum extends Component {
             <table >
                 <tbody>
                 <tr>
-                    <th>Id</th>
+                    {/* <th>Id</th> */}
                     <th>Name</th>
                     <th>Price</th>
                     <th>Delete</th>

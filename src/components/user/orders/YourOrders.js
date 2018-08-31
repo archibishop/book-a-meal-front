@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import  NavBar from './Navbar2';
+import NavBar from '../../navs/Navbar2';
 import OrdersBody from './OrdersBody';
 import { connect } from 'react-redux';
-import { getMeals } from '../actions/meals';
-import { getOrders } from '../actions/orders';
-import { updateOrder } from '../actions/updateOrder';
-import { deleteOrder } from '../actions/deleteOrder';
-import { getOrdersUser } from '../actions/ordersUser';
+import { getMeals } from '../../../actions/meals';
+import { getOrders } from '../../../actions/orders';
+import { updateOrder } from '../../../actions/updateOrder';
+import { deleteOrder } from '../../../actions/deleteOrder';
+import { getOrdersUser } from '../../../actions/ordersUser';
 import { PropTypes } from 'prop-types';
-import Modal from './Modal';
+import Modal from '../../modal/Modal';
 import Notifications, { notify } from 'react-notify-toast';
 
 
@@ -43,7 +43,7 @@ class Orders extends Component{
     componentWillMount(){
         this.props.getOrders()
         this.props.getOrdersUser() 
-        this.props.getMeals(localStorage.getItem("x-access-token"));
+        this.props.getMeals(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));
     }
 
     handleUpdate = (e) => {

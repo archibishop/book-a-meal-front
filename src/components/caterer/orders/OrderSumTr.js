@@ -10,7 +10,7 @@ class OrderSumTr extends Component {
     render(){
         return(
             <tr>
-                <td>{this.props.order.id}</td>
+                {/* <td>{this.props.order.id}</td> */}
                 <td>{this.props.order.meal_name}</td>
                 <td>{this.props.order.price}</td>
                 <td><button className="button" onClick={this.handleRemoveOrder} >Delete</button></td>

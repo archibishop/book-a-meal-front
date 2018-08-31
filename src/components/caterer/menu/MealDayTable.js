@@ -1,9 +1,9 @@
 import React, { Component } from  'react';
 import MealDayTr from './MealBayTr';
 import { connect } from 'react-redux';
-import { createMenu } from '../actions/menuCreate';
-import { updateMenu } from '../actions/updateMenu';
-import { getMenu } from '../actions/menu';
+import { createMenu } from '../../../actions/menuCreate';
+import { updateMenu } from '../../../actions/updateMenu';
+import { getMenu } from '../../../actions/menu';
 import { PropTypes } from 'prop-types';
 import Notifications, { notify } from 'react-notify-toast';
 
@@ -22,9 +22,6 @@ class MealDayTable extends Component{
     }
 
     componentWillReceiveProps(data){
-        // if (!this.isEmpty(data.menuMessage.message)) {
-        //     notify.show(data.addMealInfo.message, 'success', 5000);
-        // } 
     }
 
     isEmpty = (str) => {
@@ -47,10 +44,15 @@ class MealDayTable extends Component{
             meal_ids: newMenu,
             user_id: parseInt(localStorage.getItem("user_id"))
         }
+        console.log("menu")
+        console.log(menuData)
+        console.log(this.props.menuCheck)
         if (this.props.menuCheck === false){
             this.props.createMenu(JSON.stringify(menuData))
+            console.log("creating menu")
         } else {
             this.props.updateMenu(this.props.menuId, JSON.stringify(menuData))
+            console.log("updating menu")
         }
         this.props.getMenu(localStorage.getItem("user_id"));
     }
@@ -62,7 +64,7 @@ class MealDayTable extends Component{
                 <table >
                     <tbody>
                     <tr>
-                        <th>Id</th>
+                        {/* <th>Id</th> */}
                         <th>Name</th>
                         <th>Type</th>
                         <th>Action</th>
@@ -73,7 +75,12 @@ class MealDayTable extends Component{
 
                 <br/>
                     <form onSubmit={this.createMenu}>
-                        <label><span>Select Meals for the day</span></label>
+                        <label><span>Select Day </span></label>
+                        <select id="days" name="days" >
+                            <option value="4">Thursday</option>
+                            <option value="4">Friday</option>
+                        </select>
+                        <label><span>Select Meals </span></label>
                         <select multiple="multiple" id="meals" name="meals" size="2">
                             {this.populateOptions(this.props.meals)}
                         </select>

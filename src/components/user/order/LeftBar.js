@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import rolex from '../img/rolex.jpg';
-import ricebeans from '../img/ricebeans.jpg';
-import lasagna from '../img/lasagna.jpg';
 import MealItem from './MealItem';
-import { getCaterer } from '../actions/caterer';
-import { getCatererMenu } from '../actions/catererMenu';
-import { getMeals } from '../actions/meals';
+import { getCaterer } from '../../../actions/caterer';
+import { getCatererMenu } from '../../../actions/catererMenu';
+import { getMeals } from '../../../actions/meals';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -81,7 +78,7 @@ class LeftBar extends Component{
 
     componentWillMount(){
         this.props.getCaterer(localStorage.getItem("x-access-token"));
-        this.props.getMeals(localStorage.getItem("x-access-token"));
+        this.props.getMeals(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));
         // this.props.getCatererMenu(2, localStorage.getItem("x-access-token"))
     }
 
@@ -93,7 +90,7 @@ class LeftBar extends Component{
     }
 
     renderOptions = () => {
-        return this.state.caterers.map((caterer, index) => (
+        return this.props.caterer.map((caterer, index) => (
             <option key={index} value={caterer.id}>{caterer.business_name}</option>
         ));
     }

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Navb from './Navbar3';
+import Navb from '../../navs/Navbar3';
 import MealDayTable from './MealDayTable';
-import Modal from './Modal';
+import Modal from '../../modal/Modal';
 import { connect } from  'react-redux';
-import { getMenu } from '../actions/menu';
-import { getMeals } from '../actions/meals';
-import { updateMenu } from '../actions/updateMenu';
-import { getCatererMenu } from '../actions/catererMenu';
+import { getMenu } from '../../../actions/menu';
+import { getMeals } from '../../../actions/meals';
+import { updateMenu } from '../../../actions/updateMenu';
+import { getCatererMenu } from '../../../actions/catererMenu';
 import { PropTypes } from 'prop-types';
 
 class MealDay extends Component{
@@ -24,7 +24,7 @@ class MealDay extends Component{
 
     componentWillMount(){
         this.props.getMenu(localStorage.getItem("user_id"));
-        this.props.getMeals(localStorage.getItem('x-access-token'));   
+        this.props.getMeals(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));  
         this.props.getCatererMenu(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"))
     }
 
@@ -45,13 +45,18 @@ class MealDay extends Component{
                 menu_pos = i
             }
         }
+        console.log("menuArray")
+        console.log(menuArray)
+        if (menuArray.meal_ids != null){
+            console.log("tulululululu")
         for (let i = 0; i < menuArray.meal_ids.length; i++){
             for (let p = 0; p < data.mealList.length; p++) {
                 if ((menuArray.meal_ids[i]) === data.mealList[p].id){
                         menuPlus.push(data.mealList[p])
                 }
             }
-        }
+            }
+       
         this.setState({
             menu: menuPlus,
             mealList: data.mealList,
@@ -60,6 +65,17 @@ class MealDay extends Component{
             menuId: idMenu
         }, () => {
         });
+        }
+        else{
+            console.log(menuCheck)
+            this.setState({
+                mealList: data.mealList,
+                menuListCheck: menuCheck,
+                menuId: idMenu
+            }, () => {
+            });
+
+        }
     }
 
     toggleModal = (x) => {

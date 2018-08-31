@@ -10,7 +10,7 @@ class MealDayTr extends Component{
     render(){
         return(
             <tr>
-                <td>{ this.props.menu.id }</td>
+                {/* <td>{ this.props.menu.id }</td> */}
                 <td>{this.props.menu.meal_name}</td>
                 <td>{this.props.menu.meal_type}</td>
                 <td><button className="button" onClick={this.handleRemove}>Remove</button></td>

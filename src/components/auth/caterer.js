@@ -1,53 +1,46 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { signup } from '../actions/signUp';
-import Nav from './Navbar';
+import { signup } from '../../actions/signUp';
 
-class User extends Component {
-    
-    constructor(props){
-        super(props);
-    }
-
-    componentWillMount(){
-    }
-
-    componentWillReceiveProps(data){
-    }
+class Caterer extends Component {
 
     handleSignUp = (e) => {
         e.preventDefault();
         let data = {
-            "business_name": "",
-            "location": "",
+            "business_name": e.target.bname.value,
             "fname": e.target.fname.value,
             "lname": e.target.lname.value,
             "password": e.target.password.value,
             "email": e.target.email.value,
-            "role_id": 2,
+            "location": e.target.location.value,
+            "role_id": 1,
         }
         this.props.signup(JSON.stringify(data))
     }
 
-    isEmpty = (str) => {
-        return (!str || 0 === str.length);
-    }
-
     render() {
-        if (!this.props.show) {
+        if (this.props.show) {
             return null;
         }
+
         return (
             <div>
-                <h1>USERS SIGN UP</h1>
-                <div class="form1x">
+                <h1>CATERER SIGN UP</h1>
+
+                <div class="form1">
                     <form onSubmit={this.handleSignUp}>
+                        <label for="bname"><strong>Business Name</strong></label>
+                        <input type="text" id="bname" name="bname" placeholder="Business Name" minlength="5" required/>
+
+                        <label for="location"><strong>Location</strong></label>
+                        <input type="text" id="location" name="location" placeholder="Location" minlength="5" required/>
+
                         <label for="fname"><strong>First Name</strong></label>
-                        <input type="text" id="fname" name="fname" placeholder="First Name" minlength="5" required />
+                        <input type="text" id="fname" name="fname" placeholder="First Name" minlength="5" required/>
 
                         <label for="lname"><strong>Last Name</strong></label>
-                        <input type="text" id="lname" name="lname" placeholder="Last Name" minlength="5" required />
+                        <input type="text" id="lname" name="lname" placeholder="Last Name" minlength="5" required/>
 
                         <label for="email"><strong>Email</strong></label>
                         <input type="email" id="email" name="email" placeholder="Your email.." />
@@ -55,8 +48,8 @@ class User extends Component {
                         <label for="password"><strong>Password</strong></label>
                         <input type="password" id="password" name="password" placeholder="Password" minlength="5" required />
 
-                        <label for="cnfmpassword"><strong>Confirm</strong></label>
-                        <input type="password" id="cnfmpassword" name="cnfmpassword" placeholder="Confirm Password" minlength="5" required />
+                        <label for="cnfmpassword"><strong>Confirm Password</strong></label>
+                        <input type="password" id="cnfmpassword" name="cnfmpassword" placeholder="Password" minlength="5" required/>
 
                         <input type="submit" value="Register" />
                     </form>
@@ -66,11 +59,11 @@ class User extends Component {
     }
 }
 
-User.propTypes = {
+Caterer.propTypes = {
     signup: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
 }) 
 
-export default connect(null, { signup })(User)
+export default connect(null, { signup })(Caterer)

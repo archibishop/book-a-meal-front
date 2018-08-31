@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import OrderItem from './OrderItem';
-import Modal from './Modal';
+import Modal from '../../modal/Modal';
 
 class RightBar extends Component{
 
@@ -23,9 +23,11 @@ class RightBar extends Component{
     }
 
     componentWillMount(){
+        console.log(this.state.orderList)
     }
 
     componentWillReceiveProps(data){
+        console.log(data)
     }
 
     toggleModal = () => {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Navb from './Navbar3';
+import Navb from '../../navs/Navbar3';
 import OrderSum from './OrderSum';
-import Modal from './Modal';
+import Modal from '../../modal/Modal';
 import { PropTypes } from 'prop-types';
 import  { connect } from 'react-redux';
-import { getOrders } from '../actions/orders';
-import { deleteOrder } from '../actions/deleteOrder';
+import { getOrders } from '../../../actions/orders';
+import { deleteOrder } from '../../../actions/deleteOrder';
 import Notifications, { notify } from 'react-notify-toast';
 
 class Summary extends Component{
@@ -18,7 +18,7 @@ class Summary extends Component{
     }
 
     componentWillMount(){
-        this.props.getOrders();
+        this.props.getOrders(localStorage.getItem("user_id"));
     }
 
     componentWillReceiveProps(data){
@@ -34,7 +34,7 @@ class Summary extends Component{
 
     handleDelete = () => {
         this.props.deleteOrder(this.state.id)
-        this.props.getOrders();
+        this.props.getOrders(localStorage.getItem("user_id"));
         this.toggleModal()
     }
 

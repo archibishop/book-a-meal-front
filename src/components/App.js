@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import Login from './Login';
-import Order from './Order';
-import Orders from './YourOrders';
-import Dashboard from './Dashboard';
-import Summary from './Summary';
-import MealDay from './MealDay';
-import SignUp from './SignUp';
+import Login from './auth/Login';
+import Order from './user/order/Order';
+import Orders from './user/orders/YourOrders';
+import Dashboard from './caterer/meals/Dashboard';
+import Summary from './caterer/orders/Summary';
+import MealDay from './caterer/menu/MealDay';
+import SignUp from './auth/SignUp';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Switch} from 'react-router-dom';
-import { PrivateRoute } from './auth/auth';
+import { PrivateRoute } from '../utils/auth';
 
 class App extends Component{
     render(){

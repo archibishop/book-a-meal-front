@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import mainReducer from './reducers/index'
 import { Router, Route, browserHistory } from 'react-router';
 import registerServiceWorker from './registerServiceWorker';
-import history from './components/history'
+import history from './utils/history'
 import App from './components/App'
 
 let store = createStore(mainReducer, applyMiddleware(thunk))

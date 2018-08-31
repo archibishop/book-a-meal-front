@@ -21,7 +21,7 @@ class Meals extends Component{
                 <table >
                     <tbody>
                     <tr>
-                        <th>Id</th>
+                        {/* <th>Id</th> */}
                         <th>Name</th>
                         <th>Type</th>
                         <th>Price</th>

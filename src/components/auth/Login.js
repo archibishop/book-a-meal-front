@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { login } from '../actions/auth'
-import '../css/Login.css'
+import { login } from '../../actions/auth'
+import '../../css/Login.css'
 import { Link } from 'react-router-dom'
-import Nav from './Navbar';
+import Nav from '../navs/Navbar';
 import Notifications, { notify } from 'react-notify-toast';
 
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../css/Order.css'
-import Navbar from './Navbar2';
+import '../../../css/Order.css'
+import Navbar from '../../navs/Navbar2';
 import LeftBar from './LeftBar';
 import RightBar from './RightBar';
 import { connect } from 'react-redux';
-import { getMeals } from '../actions/meals'
-import { makeOrder } from '../actions/order'
+import { getMeals } from '../../../actions/meals'
+import { makeOrder } from '../../../actions/order'
 import { PropTypes } from 'prop-types'
 import Notifications, { notify } from 'react-notify-toast';
 
@@ -18,7 +18,7 @@ class Order extends Component {
     }
 
     componentWillMount() {
-        this.props.getMeals(localStorage.getItem("x-access-token"))
+        this.props.getMeals(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));
     }
 
     componentWillReceiveProps(newData) {
@@ -42,11 +42,15 @@ class Order extends Component {
 
     handleAddOrder = (orders) => {
         let length = orders.length
+       
         for (let i = 0; i < length; i++) {
+            console.log(orders[i].admin_id)
             let orderData = {
                 meal_name: orders[i].meal_name,
-                user_id: parseInt(localStorage.getItem("user_id"))
+                user_id: parseInt(localStorage.getItem("user_id")),
+                admin_id: orders[i].admin_id
             }
+            
             this.props.makeOrder(JSON.stringify(orderData))
             
         }
