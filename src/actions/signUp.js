@@ -11,7 +11,7 @@ export const signup = authData => dispatch => {
         }
     };
 
-    fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/auth/signup`, payload)
+    return fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/auth/signup`, payload)
     .then(response => response.json())
     .then(data => {
         dispatch(

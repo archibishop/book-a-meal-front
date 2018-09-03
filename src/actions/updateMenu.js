@@ -11,7 +11,7 @@ export const updateMenu =(id, menuData) => dispatch =>{
             'x-access-token': localStorage.getItem('x-access-token')
         }
     }
-    fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/menu/`+id, payload)
+    return fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/menu/`+id, payload)
     .then(response=>response.json())
     .then(data => {
         console.log(data)

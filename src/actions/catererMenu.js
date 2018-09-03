@@ -8,7 +8,7 @@ export const getCatererMenu = (id,authToken) => dispatch => {
             'x-access-token': authToken
         }
     }
-    fetch(`http://127.0.0.1:5000/bookamealapi/v1.0/caterers/` + id, payload)
+    return fetch(`http://127.0.0.1:5000/bookamealapi/v1.0/caterers/` + id, payload)
         .then(response => response.json())
         .then(data => dispatch(
             {

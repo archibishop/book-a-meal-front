@@ -11,7 +11,7 @@ export const updateOrder = (id, orderData) => dispatch => {
         }
     }
 
-    fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders/` + id, payload)
+    return fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders/` + id, payload)
     .then(response=>response.json())
     .then(data => {
         dispatch(

@@ -8,7 +8,7 @@ export const deleteMeal = id => dispatch => {
             'Content-type': 'appplication/json'
         }
     }
-    fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/meals/` + id,payload)
+    return fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/meals/` + id,payload)
     .then(response => response.json())
     .then(data => {
         dispatch (

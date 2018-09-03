@@ -8,7 +8,7 @@ export const deleteOrder = id => dispatch =>{
             'x-access-token': localStorage.getItem('x-access-token')
         }
         }
-    fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders/` + id, payload)
+    return fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders/` + id, payload)
     .then(response=>response.json())
     .then(data=>{
         dispatch(

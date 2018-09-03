@@ -8,7 +8,7 @@ export const getDays = (authToken) => dispatch => {
             'x-access-token': authToken
         }
     }
-    fetch(`http://127.0.0.1:5000/bookamealapi/v1.0/days_of_week`, payload)
+    return fetch(`http://127.0.0.1:5000/bookamealapi/v1.0/days_of_week`, payload)
         .then(response => response.json())
         .then(data => dispatch(
             {

@@ -5,7 +5,7 @@ export const getOrders = (id, authToken) => dispatch => {
         method: 'GET',
         headers:{}
     }
-    fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders/caterer/` + id, payload)
+    return fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders/caterer/` + id, payload)
     .then(response => response.json())
     .then(data => dispatch(
         {
