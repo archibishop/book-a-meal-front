@@ -7,6 +7,7 @@ import { getMenu } from '../../../actions/menu';
 import { getMeals } from '../../../actions/meals';
 import { updateMenu } from '../../../actions/updateMenu';
 import { getCatererMenu } from '../../../actions/catererMenu';
+import { getDays } from '../../../actions/getDays';
 import { PropTypes } from 'prop-types';
 
 class MealDay extends Component{
@@ -23,9 +24,10 @@ class MealDay extends Component{
     }
 
     componentWillMount(){
-        this.props.getMenu(localStorage.getItem("user_id"));
+        // this.props.getMenu(localStorage.getItem("user_id"));
         this.props.getMeals(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));  
-        this.props.getCatererMenu(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"))
+        this.props.getCatererMenu(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));
+        this.props.getDays(localStorage.getItem("x-access-token"))
     }
 
     componentDidMount() {
@@ -37,8 +39,11 @@ class MealDay extends Component{
         let menuCheck = false
         let idMenu = null
         let menu_pos = null
+        console.log("laugh")
+        console.log(data)
         for(let i = 0; i < data.menu.length; i++){
             if (data.menu[i].user_id === parseInt(localStorage.getItem('user_id'))){
+                console.log("How many times")
                 menuCheck = true
                 menuArray = data.menu[i]  
                 idMenu = data.menu[i].id
@@ -47,6 +52,8 @@ class MealDay extends Component{
         }
         console.log("menuArray")
         console.log(menuArray)
+        console.log("days list")
+        console.log(data)
         if (menuArray.meal_ids != null){
             console.log("tulululululu")
         for (let i = 0; i < menuArray.meal_ids.length; i++){
@@ -78,6 +85,12 @@ class MealDay extends Component{
         }
     }
 
+    populateDayOptions(days) {
+        return days.map((day, index) => (
+            <option key={index} value={day.val}>{day.day}</option>
+        ));
+    }
+
     toggleModal = (x) => {
         this.setState({
             isOpen: !this.state.isOpen,
@@ -97,6 +110,15 @@ class MealDay extends Component{
         this.toggleModal()
     }
 
+    getDayMenu = (e) => {
+        // this.props.getDayMenu(e.target.value, localStorage.getItem("x-access-token"))
+        console.log("Cope with that")
+        let menuData = {
+            value: parseInt(localStorage.getItem("user_id"))
+        }
+        this.props.getMenu(e.target.value, JSON.stringify(menuData));
+    }
+
     render(){
         return(
             <div>
@@ -104,7 +126,12 @@ class MealDay extends Component{
                 <div className="container">
                     <h1>Meals For the day</h1>
                 </div>
-                <MealDayTable menu={this.state.menu} menuId={this.state.menuId} menuCheck={this.state.menuListCheck} meals={this.state.mealList} toggleModalButton={this.toggleModal.bind(this)}/>
+                <label><span>Select Menu</span></label>
+                <select id="day" name="day" onChange={this.getDayMenu}>
+                    <option disabled selected value> -- select an option -- </option>
+                    {this.populateDayOptions(this.props.days)}
+                </select>
+                <MealDayTable dates={this.props.dateList} days={this.props.days} menu={this.props.menu} menuId={this.state.menuId} menuCheck={this.state.menuListCheck} meals={this.state.mealList} toggleModalButton={this.toggleModal.bind(this)}/>
                 <Modal show={this.state.isOpen}
                     onClose={this.toggleModal}>
                     Are you sure you want remove meal from menu.
@@ -125,15 +152,19 @@ MealDay.propTypes = {
     getMenu: PropTypes.func.isRequired,
     getMeals: PropTypes.func.isRequired,
     getCatererMenu: PropTypes.func.isRequired,
-    updateMenu: PropTypes.func.isRequired
+    updateMenu: PropTypes.func.isRequired,
+    getDays: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     menu: state.menu.menu,
+    dateList: state.menu.dateList,
+    menuId: state.menu.menuId,
     catererMenu: state.catererMenu.menu,
-    mealList: state.meals.meals
+    mealList: state.meals.meals,
+    days: state.days.days
 }) 
 
 
 
-export default connect(mapStateToProps, { getMenu, getMeals, updateMenu, getCatererMenu })(MealDay);
+export default connect(mapStateToProps, { getMenu, getMeals, updateMenu, getCatererMenu, getDays })(MealDay);

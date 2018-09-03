@@ -9,14 +9,14 @@ export const getOrdersUser = () => dispatch => {
         }
     }
     fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders/` + user_id, payload)
-        .then(response => response.json())
-        .then(data => dispatch(
-            {
-                type: USER_ORDERS,
-                payload: data.transactions
-            }
-        ))
-        .catch(error => error)
+    .then(response => response.json())
+    .then(data => dispatch(
+        {
+            type: USER_ORDERS,
+            payload: data.transactions
+        }
+    ))
+    .catch(error => error)
 }
 
 

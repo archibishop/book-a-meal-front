@@ -8,47 +8,33 @@ import Nav from '../navs/Navbar';
 import Notifications, { notify } from 'react-notify-toast';
 
 
-export class Login extends Component {
+class Login extends Component {
 
     componentWillReceiveProps(authData) {
         if (authData.userData.token) {
             if (authData.userData.role == 'user') {
                 localStorage.setItem("x-access-token", authData.userData.token)
                 localStorage.setItem("user_id", authData.userData.id)
-                notify.show("Welcome", 'success', 5000);
+                // notify.show("Welcome", 'success', 5000);
                 this.props.history.push("/order")
             }
             else if (authData.userData.role == 'admin') {
                 localStorage.setItem("x-access-token", authData.userData.token)
                 localStorage.setItem("user_id", authData.userData.id)
-                notify.show("Welcome", 'success', 5000);
+                // notify.show("Welcome", 'success', 5000);
                 this.props.history.push("/dashboard")
             }   
         }
-        else {
-            notify.show(authData.userData.message, 'warning', 5000);
-        }
-    }
-
-    isEmpty = (str) => {
-        return (!str || 0 === str.length);
-    }
-
-    componentWillMount() {
     }
 
     handleLogin = (e) => {
         e.preventDefault();
-        if (this.isEmpty(e.target.elements.password.value)){
-            notify.show("Password field cannot be empty", 'warning', 5000);
-        }
-        else {
         let auth = {
             email: e.target.elements.email.value,
             password: e.target.elements.password.value
         }
         this.props.login(JSON.stringify(auth))
-        }
+        
     }
 
 
@@ -69,7 +55,7 @@ export class Login extends Component {
                         <input type="email" id="email" name="email" placeholder="Your email.." />
 
                         <label name="password"><strong>Password</strong></label>
-                        <input type="password" id="password" name="password" placeholder="Password.." minlength="5" required />
+                        <input type="password" id="password" name="password" placeholder="Password.." minLength="5" required />
 
 
                         <input id="login-submit" type="submit" readOnly="Submit" />

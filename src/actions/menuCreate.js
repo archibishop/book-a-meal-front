@@ -11,17 +11,19 @@ export const createMenu = menuData => dispatch => {
         }
     }
     fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/menu`, payload)
-        .then(response => response.json())
-        .then(data => {
-            dispatch(
-                    {
-                        type: MENU_LIST_CREATE,
-                        action: data.message
-                    }
-                );
-                notify.show(data.message, 'success', 5000);
-            }
-        )
-        .catch(error => error)
+    .then(response => response.json())
+    .then(data => {
+        console.log("Opps am hereeeeeeeeeee")
+        console.log(data)
+        dispatch(
+                {
+                    type: MENU_LIST_CREATE,
+                    action: data.message
+                }
+            );
+            notify.show(data.message, 'success', 5000);
+        }
+    )
+    .catch(error => error)
 }
 

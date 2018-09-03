@@ -18,19 +18,15 @@ class MealDayTable extends Component{
 
     ));
 
-    componentWillMount(){
-    }
-
-    componentWillReceiveProps(data){
-    }
-
-    isEmpty = (str) => {
-        return (!str || 0 === str.length);
-    }
-
     populateOptions(meals){
         return meals.map((meal, index) => (
             <option key={index} value={meal.id}>{meal.meal_name}</option>
+        ));
+    }
+
+    populateDayOptions(days) {
+        return days.map((day, index) => (
+            <option key={day.day} value={day.val}>{day.day}</option>
         ));
     }
 
@@ -40,14 +36,22 @@ class MealDayTable extends Component{
         Array.from(e.target.meals.selectedOptions).map( o => 
             newMenu.push(o.value)
         )
+        console.log("plusss")
+        console.log(this.props.dates)
         let menuData = {
             meal_ids: newMenu,
-            user_id: parseInt(localStorage.getItem("user_id"))
+            user_id: parseInt(localStorage.getItem("user_id")),
+            menu_date: parseInt(e.target.day.value)
+        }
+        let menuCheck = false
+        for(let x= 0; x < this.props.dates.length ; x++){
+            if (e.target.day.value == this.props.dates[x]){
+                menuCheck = true
+            }
         }
         console.log("menu")
-        console.log(menuData)
         console.log(this.props.menuCheck)
-        if (this.props.menuCheck === false){
+        if (menuCheck === false){
             this.props.createMenu(JSON.stringify(menuData))
             console.log("creating menu")
         } else {
@@ -76,9 +80,8 @@ class MealDayTable extends Component{
                 <br/>
                     <form onSubmit={this.createMenu}>
                         <label><span>Select Day </span></label>
-                        <select id="days" name="days" >
-                            <option value="4">Thursday</option>
-                            <option value="4">Friday</option>
+                        <select id="day" name="day" >
+                            {this.populateDayOptions(this.props.days)}
                         </select>
                         <label><span>Select Meals </span></label>
                         <select multiple="multiple" id="meals" name="meals" size="2">

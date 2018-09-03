@@ -9,12 +9,6 @@ class User extends Component {
         super(props);
     }
 
-    componentWillMount(){
-    }
-
-    componentWillReceiveProps(data){
-    }
-
     handleSignUp = (e) => {
         e.preventDefault();
         let data = {
@@ -28,11 +22,7 @@ class User extends Component {
         }
         this.props.signup(JSON.stringify(data))
     }
-
-    isEmpty = (str) => {
-        return (!str || 0 === str.length);
-    }
-
+    
     render() {
         if (!this.props.show) {
             return null;

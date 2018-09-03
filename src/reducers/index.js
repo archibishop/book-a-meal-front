@@ -15,6 +15,7 @@ import catererReducer from './catererReducer';
 import catererMenuReducer from './catererMenuReducer';
 import userOrdersReducer from './userOrdersReducer';
 import signUpReducer from './signUpReducer';
+import getDaysReducer from './getDaysReducer';
 
 const mainReducer = combineReducers({
     user: userReducer,
@@ -32,7 +33,8 @@ const mainReducer = combineReducers({
     caterer: catererReducer,
     catererMenu: catererMenuReducer,
     userOrders: userOrdersReducer,
-    signUpReducer: signUpReducer
+    signUpReducer: signUpReducer,
+    days: getDaysReducer
 });
 
 export default mainReducer;

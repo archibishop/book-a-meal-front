@@ -2,6 +2,7 @@ import { UPDATE_MENU, UPDATE_MENU_FAILED } from './types';
 import Notifications, { notify } from 'react-notify-toast';
 
 export const updateMenu =(id, menuData) => dispatch =>{
+    console.log("nowwwww")
     let payload = {
         method: 'PUT',
         body: menuData,
@@ -12,15 +13,16 @@ export const updateMenu =(id, menuData) => dispatch =>{
     }
     fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/menu/`+id, payload)
     .then(response=>response.json())
-        .then(data => {
-            dispatch(
-                {
-                    type: UPDATE_MENU,
-                    payload: data
-                }
-            );
-            notify.show(data.message, 'success', 5000);
-        })
-    .catch(error => notify.show(error, 'success', 5000))
+    .then(data => {
+        console.log(data)
+        dispatch(
+            {
+                type: UPDATE_MENU,
+                payload: data
+            }
+        );
+        notify.show(data.message, 'success', 5000);
+    })
+    .catch(error => error)
 }
 

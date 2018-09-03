@@ -22,9 +22,6 @@ class Order extends Component {
     }
 
     componentWillReceiveProps(newData) {
-        if (newData.orderInfo === "Transacrtion Successfully Made"){
-            // notify.show("Order has been made.", 'success', 5000);
-        }
     }
 
     handleOrders(order) {
@@ -44,7 +41,6 @@ class Order extends Component {
         let length = orders.length
        
         for (let i = 0; i < length; i++) {
-            console.log(orders[i].admin_id)
             let orderData = {
                 meal_name: orders[i].meal_name,
                 user_id: parseInt(localStorage.getItem("user_id")),

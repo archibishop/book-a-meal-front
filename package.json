@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/fetch-mock": "^6.0.3",
     "ajv-keywords": "^3.2.0",
     "axios": "^0.18.0",
     "babel-plugin-transform-export-extensions": "^6.22.0",
@@ -38,7 +39,9 @@
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",
+    "fetch-mock": "^6.5.2",
     "jest": "^23.5.0",
+    "nock": "^9.6.1",
     "redux-mock-store": "^1.5.3"
   },
   "jest": {

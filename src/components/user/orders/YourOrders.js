@@ -37,9 +37,6 @@ class Orders extends Component{
         });
     }
 
-    componentWillReceiveProps(data){
-    }
-
     componentWillMount(){
         this.props.getOrders()
         this.props.getOrdersUser() 

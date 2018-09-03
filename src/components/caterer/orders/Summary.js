@@ -21,10 +21,6 @@ class Summary extends Component{
         this.props.getOrders(localStorage.getItem("user_id"));
     }
 
-    componentWillReceiveProps(data){
-        
-    }
-
     toggleModal = (x) => {
         this.setState({
             isOpen: !this.state.isOpen,
@@ -50,7 +46,7 @@ class Summary extends Component{
                     Are you sure you want delete an order.
                     <br />
                     <br />
-                    <button className="button" onClick={this.handleDelete}>
+                    <button id="btn-del" className="button" onClick={this.handleDelete}>
                         Delete Order
                     </button>
                 </Modal>

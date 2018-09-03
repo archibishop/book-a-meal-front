@@ -20,9 +20,3 @@ export const getCatererMenu = (id,authToken) => dispatch => {
 
 }
 
-// dispatch(
-//     {
-//         type: CATERER_MENU,
-//         payload: data.Menu
-//     }
-// )

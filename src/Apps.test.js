@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
-import Login from './components/Login';
+import Login from './components/auth/Login';
 
 // it('renders without crashing', () => {
 //   const div = document.createElement('div');

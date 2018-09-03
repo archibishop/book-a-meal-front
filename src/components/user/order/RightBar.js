@@ -27,7 +27,6 @@ class RightBar extends Component{
     }
 
     componentWillReceiveProps(data){
-        console.log(data)
     }
 
     toggleModal = () => {
@@ -62,7 +61,7 @@ class RightBar extends Component{
                     Are you sure you want to make an order.
                     <br />
                     <br />
-                    <button className="button-edit" onClick={this.handleOrders.bind(this)}>
+                    <button id="btn-order" className="button-edit" onClick={this.handleOrders.bind(this)}>
                         Order
                     </button>
                 </Modal>

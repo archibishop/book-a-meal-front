@@ -41,9 +41,6 @@ class Dashboard extends Component{
         this.props.getMeals(localStorage.getItem("user_id"),localStorage.getItem("x-access-token"));
     }
 
-    isEmpty = (str) => {
-        return (!str || 0 === str.length);
-    }
 
     toggleModal = (id) => {
         this.setState({
@@ -119,16 +116,17 @@ class Dashboard extends Component{
                     Are you sure you want delete the Meal.
                     <br />
                     <br />
-                    <button className="button" onClick={this.handleDeleteMeal}>
+                    <button id="btn-delete" className="button" onClick={this.handleDeleteMeal}>
                         Delete
                     </button>
                 </Modal>
                 <Modal show={this.state.isOpen2}
-                    onClose={this.toggleModal2}>
+                    onClose={this.toggleModal2}
+                    orderList={this.props.orderList}>
                     <h1>Add Meal</h1>
 
                     <div >
-                        <form action="./dashboard.html" onSubmit={this.handleAddMeal}>
+                        <form id="form-add" onSubmit={this.handleAddMeal}>
                             <label htmlFor="fname">Meal</label>
                             <input type="text" id="fname" name="firstname" placeholder="Your name.."  />
 
@@ -151,7 +149,7 @@ class Dashboard extends Component{
                     orderList={this.props.orderList}>
                     <h1>Edit Meal</h1>
                     <div >
-                        <form onSubmit={this.handleEditMeal}>
+                        <form id="form-edit" onSubmit={this.handleEditMeal}>
                             <label htmlFor="fname">Meal</label>
                             <input type="text" id="fname" name="firstname" placeholder={this.state.editMeal.meal_name} />
 

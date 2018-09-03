@@ -13,16 +13,16 @@ export const updateOrder = (id, orderData) => dispatch => {
 
     fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/orders/` + id, payload)
     .then(response=>response.json())
-        .then(data => {
-            dispatch(
-                {
-                    type: UPDATE_ORDER,
-                    payload: data
-                }
-            );
-            notify.show(data.message, 'success', 5000);
-        }
-        )
+    .then(data => {
+        dispatch(
+            {
+                type: UPDATE_ORDER,
+                payload: data
+            }
+        );
+        notify.show(data.message, 'success', 5000);
+    }
+    )
     .catch(error=>error)
 }
 

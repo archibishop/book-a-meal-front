@@ -9,11 +9,11 @@ class MealItem extends Component{
     componentDidMount(){
     }
 
-    handleChange = (e) => {
-        const new_price = e.target.value * this.props.meal.price;
-        let test_value = e.target.value * this.props.meal.price;
-        this.props.meal.total = e.target.value * this.props.meal.price;
-    }
+    // handleChange = (e) => {
+    //     const new_price = e.target.value * this.props.meal.price;
+    //     let test_value = e.target.value * this.props.meal.price;
+    //     this.props.meal.total = e.target.value * this.props.meal.price;
+    // }
 
     handleSubmit = (e) =>{
         this.props.orderList(this.props.meal)

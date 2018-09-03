@@ -7,7 +7,7 @@ import Notifications, { notify } from 'react-notify-toast';
 class SignUp extends Component {
 
     constructor(props){
-        super(props);
+        super(props)
         this.state = {
             showUser: true
         }
