@@ -8,7 +8,7 @@ import Nav from '../navs/Navbar';
 import Notifications, { notify } from 'react-notify-toast';
 
 
-class Login extends Component {
+export class Login extends Component {
 
     componentWillReceiveProps(authData) {
         if (authData.userData.token) {

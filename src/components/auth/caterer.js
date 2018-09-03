@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/signUp';
 
-class Caterer extends Component {
+export class Caterer extends Component {
 
     handleSignUp = (e) => {
         e.preventDefault();

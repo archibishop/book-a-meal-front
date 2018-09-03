@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OrderSumTr from './OrderSumTr';
 
-class OrderSum extends Component {
+export class OrderSum extends Component {
     
 
     renderOrder = () => this.props.orders.map((order, index)=>(

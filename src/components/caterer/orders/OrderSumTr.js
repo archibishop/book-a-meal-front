@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 
 
-class OrderSumTr extends Component {
+export class OrderSumTr extends Component {
 
     handleRemoveOrder = (e) => {
         e.preventDefault();

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TableRow from './OrdersTableRow'
 
 
-class OrdersBody extends Component{
+export class OrdersBody extends Component{
 
     renderOrders = () => this.props.orders.map((order, index) =>(
         <TableRow

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignUp /> render() renders the component 1`] = `
+<div>
+  <Nav />
+  <_class
+    options={Object {}}
+  />
+  <form
+    className="select-signup"
+    onClick={[Function]}
+  >
+    <input
+      name="gender"
+      type="radio"
+      value="user"
+    />
+     User
+    <input
+      name="gender"
+      type="radio"
+      value="caterer"
+    />
+     Caterer
+  </form>
+  <Connect(User)
+    show={true}
+  />
+  <Connect(Caterer)
+    show={true}
+  />
+</div>
+`;

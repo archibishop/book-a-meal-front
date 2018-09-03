@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class MealItem extends Component{
+export class MealItem extends Component{
 
     constructor(props){
         super(props);

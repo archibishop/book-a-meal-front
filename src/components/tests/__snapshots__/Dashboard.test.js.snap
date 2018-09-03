@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dashboard /> render() renders the component 1`] = `
+<div
+  className="dashboard"
+>
+  <_class
+    options={Object {}}
+  />
+  <Navb />
+  <div
+    className="container"
+  >
+    <h1>
+      MEALS
+    </h1>
+    <a
+      className="button-add"
+      onClick={[Function]}
+    >
+      Add Meal
+    </a>
+    <br />
+  </div>
+  <Meals
+    toggleDeleteButton={[Function]}
+    toggleEditButton={[Function]}
+  />
+  <Modal
+    onClose={[Function]}
+    show={false}
+  >
+    Are you sure you want delete the Meal.
+    <br />
+    <br />
+    <button
+      className="button"
+      id="btn-delete"
+      onClick={[Function]}
+    >
+      Delete
+    </button>
+  </Modal>
+  <Modal
+    onClose={[Function]}
+    show={false}
+  >
+    <h1>
+      Add Meal
+    </h1>
+    <div>
+      <form
+        id="form-add"
+        onSubmit={[Function]}
+      >
+        <label
+          htmlFor="fname"
+        >
+          Meal
+        </label>
+        <input
+          id="fname"
+          name="firstname"
+          placeholder="Your name.."
+          type="text"
+        />
+        <label
+          htmlFor="lname"
+        >
+          Price
+        </label>
+        <input
+          id="lname"
+          name="lastname"
+          placeholder="Your last name.."
+          type="number"
+        />
+        <label
+          htmlFor="country"
+        >
+          Type
+        </label>
+        <select
+          id="country"
+          name="country"
+        >
+          <option
+            value="breakfast"
+          >
+            Breakfast
+          </option>
+          <option
+            value="lunch"
+          >
+            Lunch
+          </option>
+          <option
+            value="supper"
+          >
+            Supper
+          </option>
+        </select>
+        <input
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </div>
+  </Modal>
+  <Modal
+    onClose={[Function]}
+    show={false}
+  >
+    <h1>
+      Edit Meal
+    </h1>
+    <div>
+      <form
+        id="form-edit"
+        onSubmit={[Function]}
+      >
+        <label
+          htmlFor="fname"
+        >
+          Meal
+        </label>
+        <input
+          id="fname"
+          name="firstname"
+          placeholder=""
+          type="text"
+        />
+        <label
+          htmlFor="lname"
+        >
+          Price
+        </label>
+        <input
+          id="lname"
+          name="lastname"
+          placeholder=""
+          type="text"
+        />
+        <label
+          htmlFor="country"
+        >
+          Type
+        </label>
+        <select
+          id="country"
+          name="country"
+        >
+          <option
+            value="breakfast"
+          >
+            Breakfast
+          </option>
+          <option
+            value="lunch"
+          >
+            Lunch
+          </option>
+          <option
+            value="supper"
+          >
+            Supper
+          </option>
+        </select>
+        <input
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </div>
+  </Modal>
+</div>
+`;

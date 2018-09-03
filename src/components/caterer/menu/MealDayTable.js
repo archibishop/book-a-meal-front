@@ -7,7 +7,7 @@ import { getMenu } from '../../../actions/menu';
 import { PropTypes } from 'prop-types';
 import Notifications, { notify } from 'react-notify-toast';
 
-class MealDayTable extends Component{
+export class MealDayTable extends Component{
 
     renderMenu = () => this.props.menu.map((menu, index)=>(
         <MealDayTr

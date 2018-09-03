@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class TableRow extends Component{
+export class TableRow extends Component{
     componentWillMount(){
     }
 

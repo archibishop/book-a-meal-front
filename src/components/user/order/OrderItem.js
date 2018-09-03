@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class OrderItem extends Component{
+export class OrderItem extends Component{
     handleSubmit = (e) => {
         this.props.orderDeleteByName(this.props.order)
     }

@@ -4,7 +4,7 @@ import User from './user';
 import Caterer from './caterer';
 import Notifications, { notify } from 'react-notify-toast';
 
-class SignUp extends Component {
+export class SignUp extends Component {
 
     constructor(props){
         super(props)

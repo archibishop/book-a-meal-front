@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MealTr from './MealTableRow';
 
 
-class Meals extends Component{
+export class Meals extends Component{
 
     componentWillMount(){
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class MealDayTr extends Component{
+export class MealDayTr extends Component{
     
     handleRemove = (e) => {
         e.preventDefault();

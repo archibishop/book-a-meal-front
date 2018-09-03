@@ -11,7 +11,7 @@ import { updateMeal } from '../../../actions/updateMeal';
 import { deleteMeal } from '../../../actions/deleteMeal';
 import Notifications, { notify } from 'react-notify-toast';
 
-class Dashboard extends Component{
+export class Dashboard extends Component{
 
     constructor(props){
         super(props);

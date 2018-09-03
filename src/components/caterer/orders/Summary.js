@@ -8,7 +8,7 @@ import { getOrders } from '../../../actions/orders';
 import { deleteOrder } from '../../../actions/deleteOrder';
 import Notifications, { notify } from 'react-notify-toast';
 
-class Summary extends Component{
+export class Summary extends Component{
     constructor(props){
         super(props);
         this.state = {

@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 
 
-class MealTr extends Component{
+export class MealTr extends Component{
 
     componentWillMount() {
     }

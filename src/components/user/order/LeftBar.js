@@ -6,7 +6,7 @@ import { getMeals } from '../../../actions/meals';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
-class LeftBar extends Component{
+export class LeftBar extends Component{
 
     constructor(props) {
         super(props)

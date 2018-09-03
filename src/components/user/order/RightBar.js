@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import OrderItem from './OrderItem';
 import Modal from '../../modal/Modal';
 
-class RightBar extends Component{
+export class RightBar extends Component{
 
     constructor(props) {
         super(props)

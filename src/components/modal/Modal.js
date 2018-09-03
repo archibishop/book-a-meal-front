@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Modal extends React.Component {
+export class Modal extends React.Component {
 
   constructor(props){
     super(props);
-  }
-
-  handleApiOrders=(e)=>{
-    this.props.onHandleAddOrders((this.props.orderList))
-    this.props.onClose()
   }
 
   render() {

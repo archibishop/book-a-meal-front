@@ -10,7 +10,7 @@ import { getCatererMenu } from '../../../actions/catererMenu';
 import { getDays } from '../../../actions/getDays';
 import { PropTypes } from 'prop-types';
 
-class MealDay extends Component{
+export class MealDay extends Component{
     constructor(props){
         super(props);
         this.state = {

@@ -9,7 +9,7 @@ import { makeOrder } from '../../../actions/order'
 import { PropTypes } from 'prop-types'
 import Notifications, { notify } from 'react-notify-toast';
 
-class Order extends Component {
+export class Order extends Component {
     constructor(props) {
         super(props)
         this.state = {

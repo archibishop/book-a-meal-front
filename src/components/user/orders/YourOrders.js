@@ -12,7 +12,7 @@ import Modal from '../../modal/Modal';
 import Notifications, { notify } from 'react-notify-toast';
 
 
-class Orders extends Component{
+export class Orders extends Component{
     
     constructor(props) {
         super(props)
