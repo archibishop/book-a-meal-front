@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/archibishop/book-a-meal-front.svg?branch=developAdmin)](https://travis-ci.org/archibishop/book-a-meal-front)
-
-[![Coverage Status](https://coveralls.io/repos/github/archibishop/book-a-meal-front/badge.svg?branch=developAdmin)](https://coveralls.io/github/archibishop/book-a-meal-front?branch=developAdmin)
+[![Build Status](https://travis-ci.org/archibishop/book-a-meal-front.svg?branch=developAdmin)](https://travis-ci.org/archibishop/book-a-meal-front)[![Coverage Status](https://coveralls.io/repos/github/archibishop/book-a-meal-front/badge.svg?branch=developAdmin)](https://coveralls.io/github/archibishop/book-a-meal-front?branch=developAdmin)[![Maintainability](https://api.codeclimate.com/v1/badges/791834b5d46498ab3fd3/maintainability)](https://codeclimate.com/github/archibishop/book-a-meal-front/maintainability)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
