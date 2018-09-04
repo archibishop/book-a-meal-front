@@ -34,7 +34,7 @@
     "test:coverage": "jest --coverage",
     "eject": "react-scripts eject",
     "coverage": "react-scripts test --env=jsdom --coverage",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "proxy": "http://127.0.0.1:3000",
   "devDependencies": {
