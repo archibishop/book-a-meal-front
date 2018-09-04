@@ -8,6 +8,7 @@ import { getMeals } from '../../../actions/meals';
 import { updateMenu } from '../../../actions/updateMenu';
 import { getCatererMenu } from '../../../actions/catererMenu';
 import { getDays } from '../../../actions/getDays';
+import { getMenuDays } from '../../../actions/getMenuDays';
 import { PropTypes } from 'prop-types';
 
 export class MealDay extends Component{
@@ -28,6 +29,7 @@ export class MealDay extends Component{
         this.props.getMeals(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));  
         this.props.getCatererMenu(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));
         this.props.getDays(localStorage.getItem("x-access-token"))
+        this.props.getMenuDays(localStorage.getItem("user_id"))
     }
 
     componentDidMount() {
@@ -40,6 +42,7 @@ export class MealDay extends Component{
         let idMenu = null
         let menu_pos = null
         console.log("laugh")
+        console.log(data.dateList)
         console.log(data)
         for(let i = 0; i < data.menu.length; i++){
             if (data.menu[i].user_id === parseInt(localStorage.getItem('user_id'))){
@@ -116,6 +119,8 @@ export class MealDay extends Component{
         let menuData = {
             value: parseInt(localStorage.getItem("user_id"))
         }
+        console.log(menuData)
+        console.log(e.target.value, "strechhhhhhh")
         this.props.getMenu(e.target.value, JSON.stringify(menuData));
     }
 
@@ -153,18 +158,19 @@ MealDay.propTypes = {
     getMeals: PropTypes.func.isRequired,
     getCatererMenu: PropTypes.func.isRequired,
     updateMenu: PropTypes.func.isRequired,
-    getDays: PropTypes.func.isRequired
+    getDays: PropTypes.func.isRequired,
+    getMenuDays: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     menu: state.menu.menu,
-    dateList: state.menu.dateList,
+    dateList: state.menuDays.menu_days,
     menuId: state.menu.menuId,
     catererMenu: state.catererMenu.menu,
     mealList: state.meals.meals,
-    days: state.days.days
+    days: state.days.days,
 }) 
 
 
 
-export default connect(mapStateToProps, { getMenu, getMeals, updateMenu, getCatererMenu, getDays })(MealDay);
+export default connect(mapStateToProps, { getMenu, getMeals, updateMenu, getCatererMenu, getDays, getMenuDays })(MealDay);

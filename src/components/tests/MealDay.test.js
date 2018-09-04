@@ -27,12 +27,13 @@ describe('<MealDay />', () => {
             const getMealsMock = jest.fn();
             const getDaysMock = jest.fn();
             const getCatererMenumMock = jest.fn();
+            const getMenuDaysMock = jest.fn();
 
             const days = [{
                 val: 2,
                 day: "Monday"
             }]
-            const wrapper = shallow(<MealDay getMeals={getMealsMock} days={days} getCatererMenu={getCatererMenumMock} getDays={getDaysMock} />);
+            const wrapper = shallow(<MealDay getMeals={getMealsMock} getMenuDays={getMenuDaysMock} days={days} getCatererMenu={getCatererMenumMock} getDays={getDaysMock} />);
             
         });
     });
@@ -45,12 +46,13 @@ describe('<MealDay />', () => {
             const getDaysMock = jest.fn();
             const getMenuMock = jest.fn();
             const getCatererMenumMock = jest.fn();
+            const getMenuDaysMock = jest.fn();
 
             const days = [{
                 val: 2,
                 day: "Monday"
             }]
-            const wrapper = shallow(<MealDay getMenu={getMenuMock} getMeals={getMealsMock} days={days} getCatererMenu={getCatererMenumMock} getDays={getDaysMock} />);
+            const wrapper = shallow(<MealDay getMenu={getMenuMock} getMenuDays={getMenuDaysMock} getMeals={getMealsMock} days={days} getCatererMenu={getCatererMenumMock} getDays={getDaysMock} />);
             
             expect(wrapper.find('#day').length).toEqual(1)
 
@@ -75,12 +77,13 @@ describe('<MealDay />', () => {
             const getMenuMock = jest.fn();
             const updateMenuMock = jest.fn();
             const getCatererMenumMock = jest.fn();
+            const getMenuDaysMock = jest.fn();
 
             const days = [{
                 val: 2,
                 day: "Monday"
             }]
-            const wrapper = shallow(<MealDay updateMenu={updateMenuMock} meal_ids={meal_ids} getMenu={getMenuMock} getMeals={getMealsMock} days={days} getCatererMenu={getCatererMenumMock} getDays={getDaysMock} />);
+            const wrapper = shallow(<MealDay updateMenu={updateMenuMock} getMenuDays={getMenuDaysMock} meal_ids={meal_ids} getMenu={getMenuMock} getMeals={getMealsMock} days={days} getCatererMenu={getCatererMenumMock} getDays={getDaysMock} />);
             
             expect(wrapper.find('button').length).toEqual(1)
 
@@ -108,13 +111,15 @@ describe('<MealDay />', () => {
             const getDaysMock = jest.fn();
             const getMenuMock = jest.fn();
             const updateMenuMock = jest.fn();
+            const createMenuMock = jest.fn();
             const getCatererMenumMock = jest.fn();
+            const getMenuDaysMock = jest.fn();
 
             const days = [{
                 val: 2,
                 day: "Monday"
             }]
-            const wrapper = shallow(<MealDay updateMenu={updateMenuMock} getMenu={getMenuMock} getMeals={getMealsMock} days={days} getCatererMenu={getCatererMenumMock} getDays={getDaysMock} />);
+            const wrapper = shallow(<MealDay createMenu={createMenuMock} getMenuDays={getMenuDaysMock} updateMenu={updateMenuMock} getMenu={getMenuMock} getMeals={getMealsMock} days={days} getCatererMenu={getCatererMenumMock} getDays={getDaysMock} />);
             
             expect(wrapper.find('button').length).toEqual(1)
 

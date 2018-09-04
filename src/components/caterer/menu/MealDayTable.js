@@ -36,27 +36,29 @@ export class MealDayTable extends Component{
         Array.from(e.target.meals.selectedOptions).map( o => 
             newMenu.push(o.value)
         )
-        console.log("plusss")
-        console.log(this.props.dates)
         let menuData = {
             meal_ids: newMenu,
             user_id: parseInt(localStorage.getItem("user_id")),
-            menu_date: parseInt(e.target.day.value)
+            menu_date: parseInt((6 - e.target.day.value))
         }
         let menuCheck = false
-        for(let x= 0; x < this.props.dates.length ; x++){
-            if (e.target.day.value == this.props.dates[x]){
-                menuCheck = true
+        let menuId = false
+        console.log("Run this")
+        console.log(this.props.dates)
+        console.log(e.target.day.value)
+        if (this.props.dates.length > 0){
+            for (let i = 0; i < this.props.dates.length; i++){
+                if ((6 - e.target.day.value) == this.props.dates[i].day) {
+                    menuCheck = true
+                    menuId = this.props.dates[i].id
+                    console.log("spread the love")
+                }
             }
         }
-        console.log("menu")
-        console.log(this.props.menuCheck)
         if (menuCheck === false){
             this.props.createMenu(JSON.stringify(menuData))
-            console.log("creating menu")
         } else {
-            this.props.updateMenu(this.props.menuId, JSON.stringify(menuData))
-            console.log("updating menu")
+            this.props.updateMenu(menuId, JSON.stringify(menuData))
         }
         this.props.getMenu(localStorage.getItem("user_id"));
     }
@@ -68,7 +70,6 @@ export class MealDayTable extends Component{
                 <table >
                     <tbody>
                     <tr>
-                        {/* <th>Id</th> */}
                         <th>Name</th>
                         <th>Type</th>
                         <th>Action</th>

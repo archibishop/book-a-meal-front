@@ -23,6 +23,6 @@ export const updateMenu =(id, menuData) => dispatch =>{
         );
         notify.show(data.message, 'success', 5000);
     })
-    .catch(error => error)
+    .catch(error => console.log(error))
 }
 

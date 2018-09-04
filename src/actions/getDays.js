@@ -10,12 +10,15 @@ export const getDays = (authToken) => dispatch => {
     }
     return fetch(`http://127.0.0.1:5000/bookamealapi/v1.0/days_of_week`, payload)
         .then(response => response.json())
-        .then(data => dispatch(
+        .then(data => {
+            console.log("data.days")
+            console.log(data.days)
+            dispatch(
             {
                 type: DAYS,
                 payload: data.days
-            }
-        ))
+            })
+           })
         .catch(error => error)
 
 }

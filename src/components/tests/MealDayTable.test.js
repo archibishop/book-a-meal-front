@@ -149,8 +149,12 @@ describe('<MealDayTable />', () => {
             }]
             const updateMenuMock = jest.fn()
             const getMenuMock = jest.fn()
-            let dates = [2]
-            const wrapper = shallow(<MealDayTable meals={meals} menu={menu} dates={dates} days={days} updateMenu={updateMenuMock} getMenu={getMenuMock} />);
+            const createMenuMock = jest.fn()
+            let dates = [{
+                id: 1,
+                day: 2
+            }]
+            const wrapper = shallow(<MealDayTable meals={meals} menu={menu} dates={dates} days={days} createMenu={createMenuMock} updateMenu={updateMenuMock} getMenu={getMenuMock} />);
 
             expect(wrapper.find('form').length).toEqual(1)
 
@@ -163,7 +167,7 @@ describe('<MealDayTable />', () => {
                         selectedOptions: [9,5,6]
                     },
                     day: {
-                        value: 2
+                        value: 4
                     }
 
                 }
