@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/archibishop/book-a-meal-front.svg?branch=master)](https://travis-ci.org/archibishop/book-a-meal-front)
+[![Build Status](https://travis-ci.org/archibishop/book-a-meal-front.svg?branch=developAdmin)](https://travis-ci.org/archibishop/book-a-meal-front)
+
+[![Coverage Status](https://coveralls.io/repos/github/archibishop/book-a-meal-front/badge.svg?branch=developAdmin)](https://coveralls.io/github/archibishop/book-a-meal-front?branch=developAdmin)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
