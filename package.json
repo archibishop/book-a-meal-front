@@ -7,6 +7,7 @@
     "ajv-keywords": "^3.2.0",
     "axios": "^0.18.0",
     "babel-plugin-transform-export-extensions": "^6.22.0",
+    "coveralls": "^3.0.2",
     "install": "^0.12.1",
     "npm": "^6.4.0",
     "react": "^16.4.1",
@@ -31,7 +32,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coverage": "react-scripts test --env=jsdom --coverage",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
   },
   "proxy": "http://127.0.0.1:3000",
   "devDependencies": {
