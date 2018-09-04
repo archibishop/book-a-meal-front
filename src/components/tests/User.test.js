@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
 import ConnectedUser, { User } from '../auth/user';
-import Nav from '../navs/NavBar';
 import { MemoryRouter } from 'react-router-dom';
 
 const mockStore = configureStore();

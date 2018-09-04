@@ -37,6 +37,7 @@
   },
   "proxy": "http://127.0.0.1:3000",
   "devDependencies": {
+    "ajv": "^6.5.3",
     "babel-preset-stage-0": "^6.24.1",
     "coveralls": "^3.0.2",
     "enzyme": "^3.4.1",
@@ -48,6 +49,7 @@
     "redux-mock-store": "^1.5.3"
   },
   "jest": {
+    "verbose": true,
     "setupTestFrameworkScriptFile": "./__tests__/setup/setupEnzyme.js",
     "testPathIgnorePatterns": [
       "./__tests__/setup/"
