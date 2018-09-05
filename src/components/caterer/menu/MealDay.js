@@ -41,24 +41,15 @@ export class MealDay extends Component{
         let menuCheck = false
         let idMenu = null
         let menu_pos = null
-        console.log("laugh")
-        console.log(data.dateList)
-        console.log(data)
         for(let i = 0; i < data.menu.length; i++){
             if (data.menu[i].user_id === parseInt(localStorage.getItem('user_id'))){
-                console.log("How many times")
                 menuCheck = true
                 menuArray = data.menu[i]  
                 idMenu = data.menu[i].id
                 menu_pos = i
             }
         }
-        console.log("menuArray")
-        console.log(menuArray)
-        console.log("days list")
-        console.log(data)
         if (menuArray.meal_ids != null){
-            console.log("tulululululu")
         for (let i = 0; i < menuArray.meal_ids.length; i++){
             for (let p = 0; p < data.mealList.length; p++) {
                 if ((menuArray.meal_ids[i]) === data.mealList[p].id){
@@ -77,7 +68,6 @@ export class MealDay extends Component{
         });
         }
         else{
-            console.log(menuCheck)
             this.setState({
                 mealList: data.mealList,
                 menuListCheck: menuCheck,
@@ -114,13 +104,9 @@ export class MealDay extends Component{
     }
 
     getDayMenu = (e) => {
-        // this.props.getDayMenu(e.target.value, localStorage.getItem("x-access-token"))
-        console.log("Cope with that")
         let menuData = {
             value: parseInt(localStorage.getItem("user_id"))
         }
-        console.log(menuData)
-        console.log(e.target.value, "strechhhhhhh")
         this.props.getMenu(e.target.value, JSON.stringify(menuData));
     }
 

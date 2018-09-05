@@ -22,10 +22,6 @@ export class RightBar extends Component{
         this.toggleModal()
     }
 
-    componentWillMount(){
-        console.log(this.state.orderList)
-    }
-
     componentWillReceiveProps(data){
     }
 

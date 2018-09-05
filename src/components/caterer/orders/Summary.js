@@ -17,9 +17,6 @@ export class Summary extends Component{
         }
     }
 
-    componentWillReceiveProps(data){
-        console.log(data)
-    }
 
     componentWillMount(){
         this.props.getOrders(localStorage.getItem("user_id"));
