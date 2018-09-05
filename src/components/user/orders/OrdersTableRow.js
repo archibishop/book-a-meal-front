@@ -14,12 +14,14 @@ export class TableRow extends Component{
     render(){
         return(
                 <tr>
-                    {/* <td>{this.props.order.id}</td> */}
                     <td>{this.props.order.created_at}</td>
                     <td>{this.props.order.meal_name}</td>
-                    <td>{this.props.order.price}</td>
-                <td><button className="button-edit" onClick={this.handleEditToggle}>Edit</button></td>
-                <td><button className="button" onClick={this.handleDeleteToggle}>Delete</button></td>
+                    <td>{this.props.order.price}</td> 
+                    <td>{(Date.parse(new Date().toUTCString()) - Date.parse(this.props.order.created_at))
+                    > 900000 ? "No Edit Allowed" : <button className="button-edit" onClick={this.handleEditToggle}
+                    >Edit</button>}
+                    </td>
+                    <td><button className="button" onClick={this.handleDeleteToggle}>Delete</button></td>
                 </tr>
         );
     }

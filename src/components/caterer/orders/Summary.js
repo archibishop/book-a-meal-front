@@ -17,6 +17,10 @@ export class Summary extends Component{
         }
     }
 
+    componentWillReceiveProps(data){
+        console.log(data)
+    }
+
     componentWillMount(){
         this.props.getOrders(localStorage.getItem("user_id"));
     }
@@ -40,7 +44,7 @@ export class Summary extends Component{
                 <Navb />
                 <Notifications />
                 <br />
-                <OrderSum orders={this.props.orderData} toggleModalBtn={this.toggleModal.bind(this)} />
+                <OrderSum total={this.props.ordersTotal} orders={this.props.orderData} toggleModalBtn={this.toggleModal.bind(this)} />
                 <Modal show={this.state.isOpen}
                     onClose={this.toggleModal}>
                     Are you sure you want delete an order.
@@ -62,6 +66,7 @@ Summary.propTypes = {
 
 const mapStateToProps = state => ({
     orderData: state.orders.orders,
+    ordersTotal: state.orders.total,
     deleteOrderInfo: state.deleteOrder.message
 })
 

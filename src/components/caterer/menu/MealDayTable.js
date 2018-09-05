@@ -39,23 +39,28 @@ export class MealDayTable extends Component{
         let menuData = {
             meal_ids: newMenu,
             user_id: parseInt(localStorage.getItem("user_id")),
-            menu_date: parseInt((6 - e.target.day.value))
+            menu_date: parseInt((e.target.day.value))
         }
         let menuCheck = false
         let menuId = false
         console.log("Run this")
+        console.log(localStorage.getItem("user_id"), "my id")
         console.log(this.props.dates)
         console.log(e.target.day.value)
         if (this.props.dates.length > 0){
             for (let i = 0; i < this.props.dates.length; i++){
-                if ((6 - e.target.day.value) == this.props.dates[i].day) {
+                console.log(e.target.day.value, "dynamic routes")
+                console.log(this.props.dates[i].day, "Splash test create")
+                if ((e.target.day.value) == this.props.dates[i].day) {
                     menuCheck = true
                     menuId = this.props.dates[i].id
                     console.log("spread the love")
                 }
             }
         }
+        console.log(menuCheck)
         if (menuCheck === false){
+            console.log("menuCheck")
             this.props.createMenu(JSON.stringify(menuData))
         } else {
             this.props.updateMenu(menuId, JSON.stringify(menuData))

@@ -10,7 +10,7 @@ export const getOrders = (id, authToken) => dispatch => {
     .then(data => dispatch(
         {
             type: ORDERS_LIST,
-            payload: data.transactions
+            payload: data
         }
     ))
     .catch(error => error)

@@ -20,13 +20,13 @@ describe('async actions', () => {
 
     it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
         fetchMock
-            .get('http://127.0.0.1:5000/bookmealapi/v1.0/orders/caterer/1' , { transactions: ['Orders'] })
+            .get('http://127.0.0.1:5000/bookmealapi/v1.0/orders/caterer/1' , { transactions: ['Orders'], total: 2000 })
             .catch(unmatchedUrl => {
                 return realFetch(unmatchedUrl)
             })
 
         const expectedActions = [
-            { "payload": ["Orders"], "type": "ORDERS_LIST" }
+            { "payload": { "transactions": ['Orders'], "total": 2000 }, "type": "ORDERS_LIST" }
         ]
         const store = mockStore({})
 

@@ -15,12 +15,14 @@ export class OrderSum extends Component {
     render(){
         return(
             <div>
-            <h1>Orders For the day </h1>
+            <h1>Total For The Day: {this.props.total} UGX </h1>
+            <h1>Orders</h1>
 
             <table >
                 <tbody>
                 <tr>
                     {/* <th>Id</th> */}
+                    <th>Date Ordered</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Delete</th>

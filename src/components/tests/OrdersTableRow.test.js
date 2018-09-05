@@ -12,7 +12,8 @@ const initialState = {
     },
     order: {
         meal_name: "flash",
-        price: 6000
+        price: 6000,
+        created_at: "test"
     },
     user: [
         {
@@ -27,8 +28,9 @@ const store = mockStore(initialState);
 describe('<TableRow />', () => {
     describe('render()', () => {
         test('renders the component', () => {
+            const toggleBtnMock = jest.fn();
             const orders = [];
-            const wrapper = shallow(<TableRow order={orders} />);
+            const wrapper = shallow(<TableRow order={orders} toggleButtonModal={toggleBtnMock}/>);
         });
     });
 });
@@ -36,11 +38,13 @@ describe('<TableRow />', () => {
 describe('<TableRow />', () => {
     describe('render()', () => {
         test('renders the component', () => {
+            const toggleBtnMock = jest.fn();
             const order = {
                 meal_name: "flash",
-                price: 6000
+                price: 6000,
+                created_at: "date"
             }
-            const wrapper = mount(<TableRow order={order} />);
+            const wrapper = mount(<TableRow order={order} toggleButtonModal={toggleBtnMock}/>);
         });
     });
 });

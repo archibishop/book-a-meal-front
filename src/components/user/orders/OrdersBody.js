@@ -35,7 +35,6 @@ export class OrdersBody extends Component{
                                     <table className="table">
                                         <tbody>
                                             <tr>
-                                                {/* <th></th> */}
                                                 <th>Date Ordered</th>
                                                 <th>Meal</th>
                                                 <th>Price</th>

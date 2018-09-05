@@ -3,22 +3,22 @@ import { shallow, mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { OrdersBody } from '../user/orders/OrdersBody';
 
-const mockStore = configureStore();
-const initialState = {
-    selectReducer: {
-        selectedAvatar: 0,
-    },
-    getOrders: (x) => {
-    },
-    orders: [],
-    user: [
-        {
-            message: 'HipHIP',
-            error: null,
-        }
-    ],
-};
-const store = mockStore(initialState);
+// const mockStore = configureStore();
+// const initialState = {
+//     selectReducer: {
+//         selectedAvatar: 0,
+//     },
+//     getOrders: (x) => {
+//     },
+//     orders: [],
+//     user: [
+//         {
+//             message: 'HipHIP',
+//             error: null,
+//         }
+//     ],
+// };
+// const store = mockStore(initialState);
 
 
 describe('<OrdersBody />', () => {

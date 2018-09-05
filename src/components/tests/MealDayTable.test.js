@@ -152,7 +152,7 @@ describe('<MealDayTable />', () => {
             const createMenuMock = jest.fn()
             let dates = [{
                 id: 1,
-                day: 2
+                day: 4
             }]
             const wrapper = shallow(<MealDayTable meals={meals} menu={menu} dates={dates} days={days} createMenu={createMenuMock} updateMenu={updateMenuMock} getMenu={getMenuMock} />);
 
