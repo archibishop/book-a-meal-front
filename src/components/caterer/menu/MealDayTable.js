@@ -92,6 +92,7 @@ export class MealDayTable extends Component{
 }
 
 MealDayTable.propType = {
+    // mealday actions
     createMenu: PropTypes.func.isRequired,
     updateMenu: PropTypes.func.isRequired,
     getMenu: PropTypes.func.isRequired

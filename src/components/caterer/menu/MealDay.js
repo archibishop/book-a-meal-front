@@ -55,31 +55,26 @@ export class MealDay extends Component{
                 if ((menuArray.meal_ids[i]) === data.mealList[p].id){
                         menuPlus.push(data.mealList[p])
                 }
-            }
-            }
-       
+        }}  
         this.setState({
             menu: menuPlus,
             mealList: data.mealList,
             meal_ids: data.menu[menu_pos].meal_ids,
             menuListCheck: menuCheck,
             menuId: idMenu
-        }, () => {
-        });
-        }
+        });}
         else{
             this.setState({
                 mealList: data.mealList,
                 menuListCheck: menuCheck,
                 menuId: idMenu
-            }, () => {
             });
-
         }
     }
 
     populateDayOptions(days) {
         return days.map((day, index) => (
+            // load days
             <option key={index} value={day.val}>{day.day}</option>
         ));
     }
@@ -123,7 +118,9 @@ export class MealDay extends Component{
                     {this.populateDayOptions(this.props.days)}
                 </select>
                 <MealDayTable dates={this.props.dateList} days={this.props.days} menu={this.props.menu} menuId={this.state.menuId} menuCheck={this.state.menuListCheck} meals={this.state.mealList} toggleModalButton={this.toggleModal.bind(this)}/>
-                <Modal show={this.state.isOpen}
+                <Modal 
+                    //Delete Modal
+                    show={this.state.isOpen}
                     onClose={this.toggleModal}>
                     Are you sure you want remove meal from menu.
                     <br />
@@ -140,6 +137,7 @@ export class MealDay extends Component{
 
 
 MealDay.propTypes = {
+    //actions
     getMenu: PropTypes.func.isRequired,
     getMeals: PropTypes.func.isRequired,
     getCatererMenu: PropTypes.func.isRequired,

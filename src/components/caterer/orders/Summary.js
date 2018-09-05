@@ -42,7 +42,8 @@ export class Summary extends Component{
                 <Notifications />
                 <br />
                 <OrderSum total={this.props.ordersTotal} orders={this.props.orderData} toggleModalBtn={this.toggleModal.bind(this)} />
-                <Modal show={this.state.isOpen}
+                <Modal 
+                    show={this.state.isOpen}
                     onClose={this.toggleModal}>
                     Are you sure you want delete an order.
                     <br />

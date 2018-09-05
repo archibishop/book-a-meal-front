@@ -82,14 +82,14 @@ export class Dashboard extends Component{
 
     handleEditMeal = (e) => {
         e.preventDefault();
-        let mealData = {
+        let meal = {
             meal_name: e.target.elements.firstname.value,
-            price: parseInt(e.target.elements.lastname.value),
             meal_type: e.target.elements.country.value,
+            price: parseInt(e.target.elements.lastname.value),
             admin_id: parseInt(localStorage.getItem('user_id'))
         }
-        this.props.updateMeal(this.state.editMeal.id, JSON.stringify(mealData))
-        this.toggleModal1(mealData)
+        this.props.updateMeal(this.state.editMeal.id, JSON.stringify(meal))
+        this.toggleModal1(meal)
     }
 
     handleDeleteMeal = (e) => {
@@ -108,10 +108,14 @@ export class Dashboard extends Component{
                     <a className="button-add" onClick={this.handleAdd}>Add Meal</a>
                     <br />
                 </div>
-                <Meals meals={this.props.mealList} toggleEditButton={this.toggleModal1.bind(this)} 
-                toggleDeleteButton={this.toggleModal.bind(this)} />
-                <Modal show={this.state.isOpen}
+                <Meals 
+                    // Meals Component
+                    meals={this.props.mealList} toggleEditButton={this.toggleModal1.bind(this)} 
+                    toggleDeleteButton={this.toggleModal.bind(this)} 
+                />
+                <Modal 
                     onClose={this.toggleModal}
+                    show={this.state.isOpen}
                     orderList={this.props.orderList}>
                     Are you sure you want delete the Meal.
                     <br />
@@ -120,9 +124,11 @@ export class Dashboard extends Component{
                         Delete
                     </button>
                 </Modal>
-                <Modal show={this.state.isOpen2}
-                    onClose={this.toggleModal2}
-                    orderList={this.props.orderList}>
+                <Modal 
+                    // Add meal modal
+                    show={this.state.isOpen2} 
+                    orderList={this.props.orderList} 
+                    onClose={this.toggleModal2}>
                     <h1>Add Meal</h1>
 
                     <div >
@@ -144,7 +150,9 @@ export class Dashboard extends Component{
                         </form>
                     </div>
                 </Modal>
-                <Modal show={this.state.isOpen1}
+                <Modal 
+                    // Edit form
+                    show={this.state.isOpen1}
                     onClose={this.toggleModal1}
                     orderList={this.props.orderList}>
                     <h1>Edit Meal</h1>
@@ -158,6 +166,7 @@ export class Dashboard extends Component{
 
                             <label htmlFor="country">Type</label>
                             <select id="country" name="country">
+                                <option disabled selected value> -- select an option -- </option>
                                 <option value="breakfast">Breakfast</option>
                                 <option value="lunch">Lunch</option>
                                 <option value="supper">Supper</option>
@@ -172,18 +181,21 @@ export class Dashboard extends Component{
     }
 }
 
-Dashboard.propTypes = {
+Dashboard.propTypes = { 
+    // actions
     getMeals: PropTypes.func.isRequired,
     addMeal: PropTypes.func.isRequired,
     updateMeal: PropTypes.func.isRequired,
     deleteMeal: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-    mealList: state.meals.meals,
-    addMealInfo: state.addMeal.message,
-    editMealInfo: state.updateMeal.message,
-    deleteMealInfo: state.deleteMeal.message
-})
+const mapStateToProps = state => (
+    {
+        editMealInfo: state.updateMeal.message,
+        mealList: state.meals.meals,
+        addMealInfo: state.addMeal.message, 
+        deleteMealInfo: state.deleteMeal.message
+    }
+)
 
 export default connect(mapStateToProps, {getMeals, addMeal, updateMeal, deleteMeal})(Dashboard);

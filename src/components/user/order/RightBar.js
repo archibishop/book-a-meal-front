@@ -32,6 +32,7 @@ export class RightBar extends Component{
     }
 
     renderOrderList = () => this.state.orderList.map((order, index) => (
+        // Orders
         <OrderItem
             orderDeleteByName={this.handleDelete.bind(this)}
             key={index}

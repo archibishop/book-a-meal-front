@@ -151,6 +151,13 @@ exports[`<Dashboard /> render() renders the component 1`] = `
           name="country"
         >
           <option
+            disabled={true}
+            selected={true}
+            value={true}
+          >
+             -- select an option -- 
+          </option>
+          <option
             value="breakfast"
           >
             Breakfast

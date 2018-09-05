@@ -73,19 +73,14 @@ export class Orders extends Component{
                 <Notifications />
                 <OrdersBody orders={this.props.ordersUser} toggleButton={this.toggleModal.bind(this)}
                     toggleButton1={this.toggleModal1.bind(this)}/>
-                <Modal show={this.state.isOpen}
-                    onClose={this.toggleModal} 
-                    orderList={this.props.orderList}>
+                <Modal 
+                    show={this.state.isOpen} onClose={this.toggleModal} orderList={this.props.orderList}>
                     Are you sure you want delete an order.
-                    <br />
-                    <br />
-                    <button className="button" onClick={this.handleDelete}>
-                        Delete
-                    </button>
+                    <br /> <br />
+                    <button className="button" onClick={this.handleDelete}> Delete</button>
                 </Modal>
-                <Modal show={this.state.isOpen1}
-                    onClose={this.toggleModal1}
-                    orderList={this.props.orderList}>
+                <Modal 
+                    show={this.state.isOpen1} orderList={this.props.orderList} onClose={this.toggleModal1}>
                     <h1>Edit An Order</h1>
                     <div className="form-meal">
                         <form onSubmit={this.handleUpdate}>
@@ -94,7 +89,6 @@ export class Orders extends Component{
                                 <option disabled selected value> -- select an option -- </option>
                                 {this.populateOptions()}
                             </select>
-
                             <input type="submit" value="Edit"/>
                         </form>
                     </div>
@@ -105,6 +99,7 @@ export class Orders extends Component{
 }
 
 Orders.propTypes = {
+    // actions
     getOrders: PropTypes.func.isRequired,
     updateOrder: PropTypes.func.isRequired,
     deleteOrder: PropTypes.func.isRequired,
