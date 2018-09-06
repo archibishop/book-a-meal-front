@@ -20,7 +20,7 @@ describe('async actions', () => {
 
     it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
         fetchMock
-            .post('http://127.0.0.1:5000/bookmealapi/v1.0/menu', { message: 'Menu has been successfully created' })
+            .post('https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/menu', { message: 'Menu has been successfully created' })
             .catch(unmatchedUrl => {
                 return realFetch(unmatchedUrl)
             })

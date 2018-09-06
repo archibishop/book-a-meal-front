@@ -20,7 +20,7 @@ describe('async actions', () => {
 
     it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
         fetchMock
-            .delete('http://127.0.0.1:5000/bookmealapi/v1.0/orders/1', { message: 'Order has been removed' })
+            .delete('https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/orders/1', { message: 'Order has been removed' })
             .catch(unmatchedUrl => {
                 return realFetch(unmatchedUrl)
             })

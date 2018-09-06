@@ -20,7 +20,7 @@ describe('async actions', () => {
 
     it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
         fetchMock
-            .getOnce('http://127.0.0.1:5000/bookmealapi/v1.0/meals/1', {  meals: ['do something'] , headers: { 'content-type': 'application/json' } })
+            .getOnce('https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/meals/1', {  meals: ['do something'] , headers: { 'content-type': 'application/json' } })
         .catch(unmatchedUrl => {
             // fallover call original fetch, because fetch-mock treats
             // any unmatched call as an error - its target is testing
