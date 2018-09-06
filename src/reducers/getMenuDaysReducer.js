@@ -6,8 +6,6 @@ const intialState = {
 }
 
 export default function getMenuDaysReducer(state = intialState, action) {
-    console.log("get the strap")
-    console.log(action.payload)
     switch (action.type) {
         case MENU_DAYS:
             return {

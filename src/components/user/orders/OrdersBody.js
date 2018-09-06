@@ -20,8 +20,8 @@ export class OrdersBody extends Component{
         this.props.toggleButton(z)
     }
 
-    toggle1 = (x) => {
-        this.props.toggleButton1(x)
+    toggle1 = (x, y) => {
+        this.props.toggleButton1(x, y)
     }
     render(){
         return(

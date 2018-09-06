@@ -6,8 +6,6 @@ const intialState = {
 }
 
 export default function getDaysReducer(state = intialState, action) {
-    console.log("lalalala")
-    console.log(action.payload)
     switch (action.type) {
         case DAYS:
             return {

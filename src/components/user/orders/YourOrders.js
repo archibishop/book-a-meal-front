@@ -30,17 +30,21 @@ export class Orders extends Component{
         });
     }
 
-    toggleModal1 = (id) => {
+    toggleModal1 = (mealid, adminId) => {
         this.setState({
             isOpen1: !this.state.isOpen1,
-            id: id
+            id: mealid
         });
+        this.props.getMeals(adminId, localStorage.getItem("x-access-token"));
     }
 
     componentWillMount(){
-        this.props.getOrders()
-        this.props.getOrdersUser() 
-        this.props.getMeals(localStorage.getItem("user_id"), localStorage.getItem("x-access-token"));
+        this.props.getOrders();
+        this.props.getOrdersUser();
+    }
+
+    componentWillReceiveProps(data){
+        console.log(data)
     }
 
     handleUpdate = (e) => {

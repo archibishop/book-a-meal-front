@@ -9,7 +9,7 @@ export class TableRow extends Component{
     }
 
     handleEditToggle = () => {
-        this.props.toggleButtonModal1(this.props.order.id)
+        this.props.toggleButtonModal1(this.props.order.id, this.props.order.admin_id)
     }
     render(){
         return(

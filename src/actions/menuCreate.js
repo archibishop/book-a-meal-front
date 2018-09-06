@@ -13,8 +13,6 @@ export const createMenu = menuData => dispatch => {
     return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/menu`, payload)
     .then(response => response.json())
     .then(data => {
-        console.log("Opps am hereeeeeeeeeee")
-        console.log(data)
         dispatch(
                 {
                     type: MENU_LIST_CREATE,
