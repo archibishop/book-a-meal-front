@@ -5,7 +5,8 @@ export const getMenu = (day, dataMenu) => dispatch => {
         method: "POST",
         body: dataMenu,
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'x-access-token': localStorage.getItem("x-access-token")
         }
     }
     return fetch(`https://api-test-book.herokuapp.com/bookamealapi/v1.0/menu/day/` + day, payload)

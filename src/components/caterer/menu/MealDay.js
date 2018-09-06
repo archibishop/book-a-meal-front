@@ -15,7 +15,7 @@ export class MealDay extends Component{
     constructor(props){
         super(props);
         this.state = {
-            menu: [],
+            menus: [],
             mealList: [],
             menuListCheck: false,
             menuId: null,
@@ -36,6 +36,7 @@ export class MealDay extends Component{
     }
 
     componentWillReceiveProps(data){
+        console.log(data)
         let menuPlus = []
         let menuArray = []
         let menuCheck = false
@@ -57,7 +58,7 @@ export class MealDay extends Component{
                 }
         }}  
         this.setState({
-            menu: menuPlus,
+            menus: menuPlus,
             mealList: data.mealList,
             meal_ids: data.menu[menu_pos].meal_ids,
             menuListCheck: menuCheck,

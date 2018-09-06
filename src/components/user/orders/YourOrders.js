@@ -41,6 +41,8 @@ export class Orders extends Component{
     componentWillMount(){
         this.props.getOrders();
         this.props.getOrdersUser();
+        // console.log(localStorage.getItem("user_id"))
+        // this.props.getMeals(3, localStorage.getItem("x-access-token"));
     }
 
     componentWillReceiveProps(data){

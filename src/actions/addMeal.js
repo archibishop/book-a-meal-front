@@ -12,8 +12,9 @@ export const addMeal = mealData => dispatch => {
         }
     }
     return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/meals`, payload)
-    .then(response => response.json())
-    .then(data => {
+      .then(response => response.json())
+      .then(data => {
+          
         dispatch(
             {
                 type: ADD_MEAL,

@@ -2,7 +2,6 @@ import { UPDATE_MENU, UPDATE_MENU_FAILED } from './types';
 import Notifications, { notify } from 'react-notify-toast';
 
 export const updateMenu =(id, menuData) => dispatch =>{
-    console.log("nowwwww")
     let payload = {
         method: 'PUT',
         body: menuData,
@@ -14,7 +13,6 @@ export const updateMenu =(id, menuData) => dispatch =>{
     return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/menu/`+id, payload)
     .then(response=>response.json())
     .then(data => {
-        console.log(data)
         dispatch(
             {
                 type: UPDATE_MENU,
@@ -23,6 +21,6 @@ export const updateMenu =(id, menuData) => dispatch =>{
         );
         notify.show(data.message, 'success', 5000);
     })
-    .catch(error => console.log(error))
+    .catch(error => error)
 }
 

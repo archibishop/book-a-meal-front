@@ -6,7 +6,8 @@ export const updateMeal = (id, orderData) => dispatch => {
         method: "PUT",
         body: orderData,
         headers: {
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
+            'x-access-token': localStorage.getItem('x-access-token')
         }
     }
 

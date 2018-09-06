@@ -4,7 +4,10 @@ export const getMenuDays = (id) => dispatch => {
     console.log("get menu days")
     console.log("slapppp")
     let payload = {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+            'x-access-token': localStorage.getItem('x-access-token')
+        }
     }
     return fetch(`https://api-test-book.herokuapp.com/bookamealapi/v1.0/menu/days/` + id, payload)
         .then(response => response.json())
