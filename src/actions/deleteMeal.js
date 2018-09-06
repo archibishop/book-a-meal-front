@@ -8,7 +8,7 @@ export const deleteMeal = id => dispatch => {
             'Content-type': 'appplication/json'
         }
     }
-    return fetch(`https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/meals/` + id,payload)
+    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/meals/` + id,payload)
     .then(response => response.json())
     .then(data => {
         dispatch (

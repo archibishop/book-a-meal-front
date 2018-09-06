@@ -11,7 +11,7 @@ export const login = authData => dispatch => {
             }
         };
 
-        return fetch(`https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/auth/login`, payload)
+    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/auth/login`, payload)
         .then(response=>response.json())
         .then(data=>{
             dispatch(

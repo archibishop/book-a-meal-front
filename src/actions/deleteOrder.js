@@ -8,7 +8,7 @@ export const deleteOrder = id => dispatch =>{
             'x-access-token': localStorage.getItem('x-access-token')
         }
         }
-    return fetch(`https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/orders/` + id, payload)
+    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/orders/` + id, payload)
     .then(response=>response.json())
     .then(data=>{
         dispatch(

@@ -11,7 +11,7 @@ export const updateMenu =(id, menuData) => dispatch =>{
             'x-access-token': localStorage.getItem('x-access-token')
         }
     }
-    return fetch(`https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/menu/`+id, payload)
+    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/menu/`+id, payload)
     .then(response=>response.json())
     .then(data => {
         console.log(data)

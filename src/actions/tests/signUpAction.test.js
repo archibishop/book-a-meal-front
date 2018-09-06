@@ -20,7 +20,7 @@ describe('async actions', () => {
 
     it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
         fetchMock
-            .post('https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/auth/signup', { message: 'New User has been created' })
+            .post('https://api-test-book.herokuapp.com/bookmealapi/v1.0/auth/signup', { message: 'New User has been created' })
             .catch(unmatchedUrl => {
                 return realFetch(unmatchedUrl)
             })

@@ -5,7 +5,7 @@ export const getOrders = (id, authToken) => dispatch => {
         method: 'GET',
         headers:{}
     }
-    return fetch(`https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/orders/caterer/` + id, payload)
+    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/orders/caterer/` + id, payload)
     .then(response => response.json())
     .then(data => dispatch(
         {

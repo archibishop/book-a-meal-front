@@ -8,7 +8,7 @@ export const getCatererMenu = (id,authToken) => dispatch => {
             'x-access-token': authToken
         }
     }
-    return fetch(`https://book-a-meal-front.herokuapp.com/bookamealapi/v1.0/caterers/` + id, payload)
+    return fetch(`https://api-test-book.herokuapp.com/bookamealapi/v1.0/caterers/` + id, payload)
         .then(response => response.json())
         .then(data => dispatch(
             {

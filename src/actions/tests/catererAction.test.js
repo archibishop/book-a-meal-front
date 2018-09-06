@@ -20,7 +20,7 @@ describe('async actions', () => {
 
     it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
         fetchMock
-            .getOnce('https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/caterers', { Caterers: ['Caterers List'] })
+            .getOnce('https://api-test-book.herokuapp.com/bookmealapi/v1.0/caterers', { Caterers: ['Caterers List'] })
             .catch(unmatchedUrl => {
                 return realFetch(unmatchedUrl)
             })

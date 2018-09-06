@@ -8,7 +8,7 @@ export const getMenu = (day, dataMenu) => dispatch => {
             'Content-Type': 'application/json'
         }
     }
-    return fetch(`https://book-a-meal-front.herokuapp.com/bookamealapi/v1.0/menu/day/` + day, payload)
+    return fetch(`https://api-test-book.herokuapp.com/bookamealapi/v1.0/menu/day/` + day, payload)
     .then(response=>response.json())
     .then(data => dispatch(
         {

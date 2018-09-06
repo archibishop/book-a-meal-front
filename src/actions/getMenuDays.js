@@ -6,7 +6,7 @@ export const getMenuDays = (id) => dispatch => {
     let payload = {
         method: 'GET'
     }
-    return fetch(`https://book-a-meal-front.herokuapp.com/bookamealapi/v1.0/menu/days/` + id, payload)
+    return fetch(`https://api-test-book.herokuapp.com/bookamealapi/v1.0/menu/days/` + id, payload)
         .then(response => response.json())
         .then(data => {
             console.log("data.days_list")
