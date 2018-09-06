@@ -10,7 +10,7 @@ export const createMenu = menuData => dispatch => {
             'x-access-token': localStorage.getItem('x-access-token')
         }
     }
-    return fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/menu`, payload)
+    return fetch(`https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/menu`, payload)
     .then(response => response.json())
     .then(data => {
         console.log("Opps am hereeeeeeeeeee")

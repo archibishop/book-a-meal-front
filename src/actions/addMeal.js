@@ -11,7 +11,7 @@ export const addMeal = mealData => dispatch => {
             'x-access-token': localStorage.getItem('x-access-token')
         }
     }
-    return fetch(`http://127.0.0.1:5000/bookmealapi/v1.0/meals`, payload)
+    return fetch(`https://book-a-meal-front.herokuapp.com/bookmealapi/v1.0/meals`, payload)
     .then(response => response.json())
     .then(data => {
         dispatch(
