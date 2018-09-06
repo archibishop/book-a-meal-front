@@ -134,10 +134,10 @@ export class Dashboard extends Component{
                     <div >
                         <form id="form-add" onSubmit={this.handleAddMeal}>
                             <label htmlFor="fname">Meal</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Your name.."  />
+                            <input type="text" id="fname" name="firstname" placeholder="Meal Name..."  />
 
                             <label htmlFor="lname">Price</label>
-                            <input type="number" id="lname" name="lastname" placeholder="Your last name.." />
+                            <input type="number" id="lname" name="lastname" placeholder="Price 2000UGX..." />
 
                             <label htmlFor="country">Type</label>
                             <select id="country" name="country">

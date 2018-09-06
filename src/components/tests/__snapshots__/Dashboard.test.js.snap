@@ -61,7 +61,7 @@ exports[`<Dashboard /> render() renders the component 1`] = `
         <input
           id="fname"
           name="firstname"
-          placeholder="Your name.."
+          placeholder="Meal Name..."
           type="text"
         />
         <label
@@ -72,7 +72,7 @@ exports[`<Dashboard /> render() renders the component 1`] = `
         <input
           id="lname"
           name="lastname"
-          placeholder="Your last name.."
+          placeholder="Price 2000UGX..."
           type="number"
         />
         <label
