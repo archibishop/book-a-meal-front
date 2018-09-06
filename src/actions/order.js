@@ -4,6 +4,7 @@ import Notifications, { notify } from 'react-notify-toast';
 
 export const makeOrder = order => dispatch => {
     let payload = {
+        // Make order payload
         method: 'POST',
         body: order,
         headers:{
