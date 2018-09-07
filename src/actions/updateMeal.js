@@ -1,7 +1,9 @@
 import { UPDATE_MEAL, UPDATE_MEAL_FAILED } from './types';
 import Notifications, { notify } from 'react-notify-toast';
+import { dispatchAction } from '../utils/dispatchAction';
 
 export const updateMeal = (id, orderData) => dispatch => {
+    // Update Meal
     let payload = {
         method: "PUT",
         body: orderData,
@@ -11,17 +13,8 @@ export const updateMeal = (id, orderData) => dispatch => {
         }
     }
 
-    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/meals/`+id, payload)
-    .then(response=>response.json())
-    .then(data=> {
-            dispatch(
-            {
-                type: UPDATE_MEAL,
-                payload: data
-            }
-            );
-            notify.show(data.message, 'success', 5000);
-        }
-    )
-    .catch(error=>error)
+    let url = `https://api-test-book.herokuapp.com/bookmealapi/v1.0/meals/` + id
+    return dispatchAction(url, payload, UPDATE_MEAL, dispatch)
+    
 }
+

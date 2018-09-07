@@ -10,7 +10,7 @@ export default function orderReducer(state = intialState, action) {
         case SIGNUP:
             return {
                 ...state,
-                message: action.payload
+                message: action.payload.message
             }
         case SIGNUP_FAILED:
             return {

@@ -10,7 +10,7 @@ export default function createMenuReducer(state = intialState, action) {
         case MENU_LIST_CREATE:
             return {
                 ...state,
-                message: action.payload
+                message: action.payload.message
             }
         case MENU_LIST_CREATE_FAILED:
             return {

@@ -10,6 +10,7 @@ import Notifications, { notify } from 'react-notify-toast';
 export class MealDayTable extends Component{
 
     renderMenu = () => this.props.menu.map((menu, index)=>(
+        //render menu
         <MealDayTr
             toggleBtn={this.props.toggleModalButton}
             menu={menu}
@@ -72,9 +73,7 @@ export class MealDayTable extends Component{
                     </tr>
                     {this.renderMenu()}
                     </tbody>
-                </table>
-
-                <br/>
+                </table><br/>
                     <form onSubmit={this.createMenu}>
                         <label><span>Select Day </span></label>
                         <select id="day" name="day" >
@@ -86,8 +85,7 @@ export class MealDayTable extends Component{
                         </select>
                         <input type="submit" readOnly="Submit" />
                     </form>
-            </div>
-        );
+            </div> );
     }
 }
 

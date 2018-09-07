@@ -1,5 +1,6 @@
 import { MENU_LIST_CREATE, MENU_LIST_CREATE_FAILED } from './types';
 import Notifications, { notify } from 'react-notify-toast';
+import { dispatchAction } from '../utils/dispatchAction';
 
 export const createMenu = menuData => dispatch => {
     let payload = {
@@ -10,18 +11,9 @@ export const createMenu = menuData => dispatch => {
             'x-access-token': localStorage.getItem('x-access-token')
         }
     }
-    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/menu`, payload)
-    .then(response => response.json())
-    .then(data => {
-        dispatch(
-                {
-                    type: MENU_LIST_CREATE,
-                    action: data.message
-                }
-            );
-            notify.show(data.message, 'success', 5000);
-        }
-    )
-    .catch(error => error)
+    let url = `https://api-test-book.herokuapp.com/bookmealapi/v1.0/menu`
+    return dispatchAction(url, payload, MENU_LIST_CREATE, dispatch)
+    
 }
+
 

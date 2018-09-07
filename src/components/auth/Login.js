@@ -19,9 +19,8 @@ export class Login extends Component {
                 this.props.history.push("/order")
             }
             else if (authData.userData.role == 'admin') {
-                localStorage.setItem("x-access-token", authData.userData.token)
                 localStorage.setItem("user_id", authData.userData.id)
-                // notify.show("Welcome", 'success', 5000);
+                localStorage.setItem("x-access-token", authData.userData.token)
                 this.props.history.push("/dashboard")
             }   
         }

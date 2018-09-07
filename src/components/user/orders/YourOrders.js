@@ -74,9 +74,7 @@ export class Orders extends Component{
 
     render(){
         return(
-            <div>
-                <NavBar />
-                <Notifications />
+            <div><NavBar /><Notifications />
                 <OrdersBody orders={this.props.ordersUser} toggleButton={this.toggleModal.bind(this)}
                     toggleButton1={this.toggleModal1.bind(this)}/>
                 <Modal 
@@ -99,8 +97,7 @@ export class Orders extends Component{
                         </form>
                     </div>
                 </Modal>
-            </div>
-        );
+            </div>);
     }
 }
 

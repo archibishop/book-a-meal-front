@@ -12,8 +12,7 @@ export const getMenuDays = (id) => dispatch => {
     return fetch(`https://api-test-book.herokuapp.com/bookamealapi/v1.0/menu/days/` + id, payload)
         .then(response => response.json())
         .then(data => {
-            console.log("data.days_list")
-            console.log(data.days_list)
+            // get menu days
             dispatch(
             {
                 type: MENU_DAYS,

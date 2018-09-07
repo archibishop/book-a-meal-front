@@ -1,8 +1,9 @@
 import { ADD_MEAL, ADD_MEAL_FAILED} from './types';
 import Notifications, { notify } from 'react-notify-toast';
-
+import { dispatchAction } from '../utils/dispatchAction';
 
 export const addMeal = mealData => dispatch => {
+    // add meal
     let payload = {
         method: "POST",
         body: mealData,
@@ -11,19 +12,8 @@ export const addMeal = mealData => dispatch => {
             'x-access-token': localStorage.getItem('x-access-token')
         }
     }
-    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/meals`, payload)
-      .then(response => response.json())
-      .then(data => {
-          
-        dispatch(
-            {
-                type: ADD_MEAL,
-                payload: data
-            }
-        );
-        notify.show(data.message, 'success', 5000);
-    }
-    )
-    .catch(error => error)
+    let url = `https://api-test-book.herokuapp.com/bookmealapi/v1.0/meals`
+    return dispatchAction(url, payload, ADD_MEAL, dispatch)
+    
 }
 

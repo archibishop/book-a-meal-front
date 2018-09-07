@@ -26,9 +26,4 @@ export const signup = authData => dispatch => {
 }
 
 
-// dispatch(
-//     {
-//         type: SIGNUP,
-//         payload: data
-//     }
-// )
+

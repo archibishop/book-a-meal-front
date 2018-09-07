@@ -1,4 +1,5 @@
-import { ORDERS_LIST } from './types'
+import { ORDERS_LIST } from './types';
+import { dispatchAction } from '../utils/dispatchAction';
 
 export const getOrders = (id, authToken) => dispatch => {
     let payload = {
@@ -7,13 +8,9 @@ export const getOrders = (id, authToken) => dispatch => {
             'x-access-token': localStorage.getItem("x-access-token")
         }
     }
-    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/orders/caterer/` + id, payload)
-    .then(response => response.json())
-    .then(data => dispatch(
-        {
-            type: ORDERS_LIST,
-            payload: data
-        }
-    ))
-    .catch(error => error)
+
+    let url = `https://api-test-book.herokuapp.com/bookmealapi/v1.0/orders/caterer/` + id
+    return dispatchAction(url, payload, ORDERS_LIST, dispatch)
 }
+
+

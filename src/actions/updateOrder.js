@@ -1,28 +1,21 @@
 import { UPDATE_ORDER, DELETE_ORDER } from './types'
 import Notifications, { notify } from 'react-notify-toast';
+import { dispatchAction } from '../utils/dispatchAction';
 
 export const updateOrder = (id, orderData) => dispatch => {
     let payload = {
-        method: 'PUT',
-        body: orderData,
         headers: {
             'Content-Type': 'application/json',
             'x-access-token': localStorage.getItem('x-acess-token')
-        }
+        },
+        body: orderData,
+        method: 'PUT'
     }
 
-    return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/orders/` + id, payload)
-    .then(response=>response.json())
-    .then(data => {
-        dispatch(
-            {
-                type: UPDATE_ORDER,
-                payload: data
-            }
-        );
-        notify.show(data.message, 'success', 5000);
-    }
-    )
-    .catch(error=>error)
+    let url = `https://api-test-book.herokuapp.com/bookmealapi/v1.0/orders/` + id
+    return dispatchAction(url, payload, UPDATE_ORDER, dispatch)
+    
+    
 }
+
 

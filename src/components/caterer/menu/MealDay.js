@@ -36,7 +36,6 @@ export class MealDay extends Component{
     }
 
     componentWillReceiveProps(data){
-        console.log(data)
         let menuPlus = []
         let menuArray = []
         let menuCheck = false
@@ -48,15 +47,13 @@ export class MealDay extends Component{
                 menuArray = data.menu[i]  
                 idMenu = data.menu[i].id
                 menu_pos = i
-            }
-        }
+        }}
         if (menuArray.meal_ids != null){
         for (let i = 0; i < menuArray.meal_ids.length; i++){
             for (let p = 0; p < data.mealList.length; p++) {
                 if ((menuArray.meal_ids[i]) === data.mealList[p].id){
                         menuPlus.push(data.mealList[p])
-                }
-        }}  
+        }}}  
         this.setState({
             menus: menuPlus,
             mealList: data.mealList,

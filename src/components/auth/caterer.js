@@ -21,9 +21,7 @@ export class Caterer extends Component {
 
     render() {
         if (this.props.show) {
-            return null;
-        }
-
+            return null;}
         return (
             <div>
                 <h1>CATERER SIGN UP</h1>
@@ -54,8 +52,7 @@ export class Caterer extends Component {
                         <input type="submit" value="Register" />
                     </form>
                 </div>
-            </div>
-        );
+            </div>);
     }
 }
 

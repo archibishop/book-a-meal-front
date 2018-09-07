@@ -10,8 +10,7 @@ export const getOrdersUser = () => dispatch => {
     }
     return fetch(`https://api-test-book.herokuapp.com/bookmealapi/v1.0/orders/` + user_id, payload)
     .then(response => response.json())
-    .then(data => dispatch(
-        {
+    .then(data => dispatch({
             type: USER_ORDERS,
             payload: data.transactions
         }

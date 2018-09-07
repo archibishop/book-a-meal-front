@@ -10,7 +10,7 @@ export default function makeOrderReducer(state=intialState, action){
         case MAKE_ORDER:
             return {
                 ...state,
-                message: action.payload
+                message: action.payload.message
             }
         case MAKE_ORDER_FAILED:
             return {

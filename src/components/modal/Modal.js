@@ -8,11 +8,8 @@ export class Modal extends React.Component {
   }
 
   render() {
-    // Render nothing if the "show" prop is false
     if(!this.props.show) {
-      return null;
-    }
-
+      return null;}
     // The gray background
     const backdropStyle = {
       position: 'fixed',
@@ -21,9 +18,7 @@ export class Modal extends React.Component {
       left: 0,
       right: 0,
       backgroundColor: 'rgba(0,0,0,0.3)',
-      padding: 50
-    };
-
+      padding: 50};
     // The modal "window"
     const modalStyle = {
       backgroundColor: '#fff',
@@ -31,21 +26,15 @@ export class Modal extends React.Component {
       maxWidth: 500,
       minHeight: '0 auto',
       margin: '0 auto',
-      padding: 30
-    };
-
+      padding: 30};
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
-          <button className="close-button rightside" onClick={this.props.onClose}>
-            Close
-          </button>
-          <br />
-          <br />
+          <button className="close-button rightside" onClick={this.props.onClose}>Close</button>
+          <br /><br />
           {this.props.children}
         </div>
-      </div>
-    );
+      </div> );
   }
 }
 

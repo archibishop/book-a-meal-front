@@ -48,8 +48,7 @@ export class OrdersBody extends Component{
                             </div>
                         </div>
                     </div>
-                </div>
-        );
+                </div>);
     }
 }
 

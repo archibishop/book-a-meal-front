@@ -11,8 +11,6 @@ export const getDays = (authToken) => dispatch => {
     return fetch(`https://api-test-book.herokuapp.com/bookamealapi/v1.0/days_of_week`, payload)
         .then(response => response.json())
         .then(data => {
-            console.log("data.days")
-            console.log(data.days)
             dispatch(
             {
                 type: DAYS,

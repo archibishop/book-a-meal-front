@@ -26,7 +26,7 @@ describe('async actions', () => {
             })
 
         const expectedActions = [
-            { "action": "Menu has been successfully created", "type": "MENU_LIST_CREATE" }
+            { "payload": { "message": "Menu has been successfully created" }, "type": "MENU_LIST_CREATE" }
         ]
         const store = mockStore({})
 

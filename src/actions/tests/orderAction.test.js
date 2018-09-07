@@ -26,7 +26,7 @@ describe('async actions', () => {
             })
 
         const expectedActions = [
-            { "payload": "Order has been successfully created", "type": "MAKE_ORDER" }
+            { "payload": { "message": "Order has been successfully created" }, "type": "MAKE_ORDER" }
         ]
         const store = mockStore({})
 
