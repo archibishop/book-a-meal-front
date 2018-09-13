@@ -4,6 +4,7 @@ import toJson from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
 import { Dashboard } from '../caterer/meals/Dashboard';
 import { MemoryRouter } from 'react-router-dom';
+import { debug } from 'util';
 
 const mockStore = configureStore();
 const initialState = {

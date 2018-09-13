@@ -5,12 +5,12 @@ import { dispatchAction } from '../utils/dispatchAction';
 export const updateMenu =(id, menuData) => dispatch =>{
     // update menu
     let payload = {
-        method: 'PUT',
         body: menuData,
         headers: {
             'Content-Type': 'application/json',
             'x-access-token': localStorage.getItem('x-access-token')
-        }
+        },
+        method: 'PUT'
     }
 
     let url = `https://api-test-book.herokuapp.com/bookmealapi/v1.0/menu/` + id
